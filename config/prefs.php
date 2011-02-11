@@ -1,8 +1,10 @@
 <?php
 /**
- * $Horde: trean/config/prefs.php.dist,v 1.21 2008/03/26 07:25:08 chuck Exp $
- *
  * See horde/config/prefs.php for documentation on the structure of this file.
+ *
+ * IMPORTANT: Local overrides should be placed in pref.local.php, or
+ * prefs-servername.php if the 'vhosts' setting has been enabled in Horde's
+ * configuration.
  */
 
 $prefGroups['display'] = array(
@@ -60,3 +62,8 @@ $_prefs['expand_tree'] = array(
                     'all' => _("Completely expanded")),
     'desc' => _("Should your list of bookmark folders be open when you log in?")
 );
+
+/* Local overrides. */
+if (file_exists(dirname(__FILE__) . '/prefs.local.php')) {
+    include dirname(__FILE__) . '/prefs.local.php';
+}
