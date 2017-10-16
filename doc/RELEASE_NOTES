@@ -13,10 +13,10 @@ bookmarks. For more information on Trean, visit
 http://www.horde.org/apps/trean.
 
 For upgrading instructions, please see
-http://www.horde.org/apps/horde/docs/UPGRADING
+http://www.horde.org/apps/horde/doc/UPGRADING
 
 For detailed installation and configuration instructions, please see
-http://www.horde.org/apps/trean/docs/INSTALL
+http://www.horde.org/apps/trean/doc/INSTALL
 
 Major changes compared to the Trean H5 (1.0) versions are:
     * Added support for importing bookmarks from Mozilla's JSON format.

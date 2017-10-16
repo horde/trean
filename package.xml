@@ -22,7 +22,7 @@
   <email>jan@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2016-11-09</date>
+ <date>2017-10-13</date>
  <version>
   <release>2.0.0</release>
   <api>2.0.0</api>
@@ -67,13 +67,13 @@
     <file name="prefs.php" role="horde" />
     <file name="routes.php" role="horde" />
    </dir> <!-- /config -->
-   <dir name="docs">
+   <dir name="doc">
     <file name="CHANGES" role="doc" />
     <file name="CREDITS" role="doc" />
     <file name="INSTALL" role="doc" />
     <file name="lighttpd-trean.conf" role="doc" />
     <file name="RELEASE_NOTES" role="doc" />
-   </dir> <!-- /docs -->
+   </dir> <!-- /doc -->
    <dir name="js">
     <file name="toptags.js" role="horde" />
    </dir> <!-- /js -->
@@ -279,14 +279,14 @@
      </dir> <!-- /themes/default/graphics -->
      <file name="screen.css" role="horde" />
     </dir> <!-- /themes/default -->
-    </dir> <!-- /themes -->
+   </dir> <!-- /themes -->
    <file name="add.php" role="horde" />
    <file name="browse.php" role="horde" />
    <file name="data.php" role="horde" />
    <file name="edit.php" role="horde" />
    <file name="favicon.php" role="horde" />
    <file name="index.php" role="horde" />
-   <file name="LICENSE" role="horde" />
+   <file name="LICENSE" role="doc" />
    <file name="README" role="doc" />
    <file name="redirect.php" role="horde" />
    <file name="rss.php" role="horde" />
@@ -468,7 +468,7 @@
    <install as="trean/edit.php" name="edit.php" />
    <install as="trean/favicon.php" name="favicon.php" />
    <install as="trean/index.php" name="index.php" />
-   <install as="trean/LICENSE" name="LICENSE" />
+   <install as="LICENSE" name="LICENSE" />
    <install as="README" name="README" />
    <install as="trean/redirect.php" name="redirect.php" />
    <install as="trean/rss.php" name="rss.php" />
@@ -484,11 +484,11 @@
    <install as="trean/config/conf.xml" name="config/conf.xml" />
    <install as="trean/config/prefs.php" name="config/prefs.php" />
    <install as="trean/config/routes.php" name="config/routes.php" />
-   <install as="CHANGES" name="docs/CHANGES" />
-   <install as="CREDITS" name="docs/CREDITS" />
-   <install as="INSTALL" name="docs/INSTALL" />
-   <install as="lighttpd-trean.conf" name="docs/lighttpd-trean.conf" />
-   <install as="RELEASE_NOTES" name="docs/RELEASE_NOTES" />
+   <install as="CHANGES" name="doc/CHANGES" />
+   <install as="CREDITS" name="doc/CREDITS" />
+   <install as="INSTALL" name="doc/INSTALL" />
+   <install as="lighttpd-trean.conf" name="doc/lighttpd-trean.conf" />
+   <install as="RELEASE_NOTES" name="doc/RELEASE_NOTES" />
    <install as="trean/js/toptags.js" name="js/toptags.js" />
    <install as="trean/lib/.htaccess" name="lib/.htaccess" />
    <install as="trean/lib/Api.php" name="lib/Api.php" />
@@ -583,7 +583,7 @@
    <install as="trean/themes/default/graphics/protocol/ftp.png" name="themes/default/graphics/protocol/ftp.png" />
    <install as="trean/themes/default/graphics/protocol/http.png" name="themes/default/graphics/protocol/http.png" />
    <install as="trean/themes/default/graphics/protocol/https.png" name="themes/default/graphics/protocol/https.png" />
-   </filelist>
+  </filelist>
  </phprelease>
  <changelog>
   <release>
@@ -841,7 +841,7 @@
    </notes>
   </release>
   <release>
-   <date>2016-11-09</date>
+   <date>2017-10-13</date>
    <version>
     <release>2.0.0</release>
     <api>2.0.0</api>
