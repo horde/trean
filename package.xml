@@ -22,7 +22,7 @@
   <email>jan@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-10-13</date>
+ <date>2017-10-16</date>
  <version>
   <release>2.0.0</release>
   <api>2.0.0</api>
@@ -287,7 +287,7 @@
    <file name="favicon.php" role="horde" />
    <file name="index.php" role="horde" />
    <file name="LICENSE" role="doc" />
-   <file name="README" role="doc" />
+   <file name="README.rst" role="doc" />
    <file name="redirect.php" role="horde" />
    <file name="rss.php" role="horde" />
    <file name="search.php" role="horde" />
@@ -469,7 +469,7 @@
    <install as="trean/favicon.php" name="favicon.php" />
    <install as="trean/index.php" name="index.php" />
    <install as="LICENSE" name="LICENSE" />
-   <install as="README" name="README" />
+   <install as="README.rst" name="README.rst" />
    <install as="trean/redirect.php" name="redirect.php" />
    <install as="trean/rss.php" name="rss.php" />
    <install as="trean/search.php" name="search.php" />
@@ -841,7 +841,7 @@
    </notes>
   </release>
   <release>
-   <date>2017-10-13</date>
+   <date>2017-10-16</date>
    <version>
     <release>2.0.0</release>
     <api>2.0.0</api>
