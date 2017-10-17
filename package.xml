@@ -22,7 +22,7 @@
   <email>jan@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-10-16</date>
+ <date>2017-10-17</date>
  <version>
   <release>2.0.0</release>
   <api>2.0.0</api>
@@ -69,8 +69,8 @@
    </dir> <!-- /config -->
    <dir name="doc">
     <file name="CHANGES" role="doc" />
-    <file name="CREDITS" role="doc" />
-    <file name="INSTALL" role="doc" />
+    <file name="CREDITS.rst" role="doc" />
+    <file name="INSTALL.rst" role="doc" />
     <file name="lighttpd-trean.conf" role="doc" />
     <file name="RELEASE_NOTES" role="doc" />
    </dir> <!-- /doc -->
@@ -485,8 +485,8 @@
    <install as="trean/config/prefs.php" name="config/prefs.php" />
    <install as="trean/config/routes.php" name="config/routes.php" />
    <install as="CHANGES" name="doc/CHANGES" />
-   <install as="CREDITS" name="doc/CREDITS" />
-   <install as="INSTALL" name="doc/INSTALL" />
+   <install as="CREDITS.rst" name="doc/CREDITS.rst" />
+   <install as="INSTALL.rst" name="doc/INSTALL.rst" />
    <install as="lighttpd-trean.conf" name="doc/lighttpd-trean.conf" />
    <install as="RELEASE_NOTES" name="doc/RELEASE_NOTES" />
    <install as="trean/js/toptags.js" name="js/toptags.js" />
@@ -841,7 +841,7 @@
    </notes>
   </release>
   <release>
-   <date>2017-10-16</date>
+   <date>2017-10-17</date>
    <version>
     <release>2.0.0</release>
     <api>2.0.0</api>
