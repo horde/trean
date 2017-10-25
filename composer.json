@@ -22,7 +22,7 @@
         }
     ],
     "version": "2.0.0",
-    "time": "2016-11-09",
+    "time": "2017-10-17",
     "repositories": [
         {
             "type": "pear",
@@ -30,7 +30,7 @@
         }
     ],
     "require": {
-        "php": "^5.3",
+        "php": "^5.3 || ^7",
         "pear-pear.horde.org/horde": "^5.0.2",
         "pear-pear.horde.org/content": "^2.0.5",
         "pear-pear.horde.org/Horde_Autoloader": "^2",
@@ -40,10 +40,6 @@
         "pear-pear.horde.org/Horde_Db": "^2",
         "pear-pear.horde.org/Horde_Exception": "^2",
         "pear-pear.horde.org/Horde_Form": "^2",
-        "pear-pear.horde.org/Horde_Autoloader": "^2",
-        "pear-pear.horde.org/Horde_Core": "^2",
-        "pear-pear.horde.org/Horde_Date": "^2",
-        "pear-pear.horde.org/Horde_Db": "^2",
         "pear-pear.horde.org/Horde_Notification": "^2",
         "pear-pear.horde.org/Horde_Perms": "^2",
         "pear-pear.horde.org/Horde_Queue": "^1",
@@ -56,5 +52,14 @@
     "suggest": {
         "pear-pear.horde.org/Horde_Browser": "^2",
         "pear-pear.horde.org/Horde_Cache": "^2"
+    },
+    "replace": {
+        "pear-pear.horde.org/trean": "2.*",
+        "pear-horde/trean": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Trean": "lib/"
+        }
     }
 }
