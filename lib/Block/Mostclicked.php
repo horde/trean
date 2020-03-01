@@ -58,7 +58,7 @@ class Trean_Block_Mostclicked extends Horde_Core_Block
      */
     protected function _content()
     {
-        $template = TREAN_TEMPLATES . '/block/' . $this->_params['template'] . '.inc';
+        $template = TREAN_TEMPLATES . '/block/' . basename($this->_params['template']) . '.inc';
 
         $html = '';
         $bookmarks = $GLOBALS['trean_gateway']->listBookmarks('clicks', 1, 0, $this->_params['rows']);

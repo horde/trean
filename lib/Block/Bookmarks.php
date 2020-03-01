@@ -68,7 +68,7 @@ class Trean_Block_Bookmarks extends Horde_Core_Block
      */
     protected function _content()
     {
-        $template = TREAN_TEMPLATES . '/block/' . $this->_params['template'] . '.inc';
+        $template = TREAN_TEMPLATES . '/block/' . basename($this->_params['template']) . '.inc';
 
         $sortby = 'title';
         $sortdir = 0;
