@@ -1,6 +1,10 @@
------------
-v1.1.10-git
------------
+-------
+v1.1.10
+-------
+
+[mjr] SECURITY: Fix Directory Traversal Vulnerability (Reported By: Andrea
+      Cardaci working with Trend Micro Zero Day Initiative).
+
 
 
 ------
