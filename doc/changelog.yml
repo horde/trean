@@ -22,7 +22,9 @@
   license:
     identifier: BSD-2-Clause
     uri: http://www.horde.org/licenses/bsd
-  notes:
+  notes: |+
+    [mjr] SECURITY: Fix Directory Traversal Vulnerability (Reported By: Andrea Cardaci working with Trend Micro Zero Day Initiative).
+    
 1.1.9:
   api: 1.1.0
   state:
