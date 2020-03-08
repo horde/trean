@@ -3,7 +3,8 @@
  <name>trean</name>
  <channel>pear.horde.org</channel>
  <summary>Bookmarks application</summary>
- <description>Trean is a web-based bookmarks application that provides management of browser bookmarks, including support for tagging, link checking, and searching bookmarks.</description>
+ <description>Trean is a web-based bookmarks application that provides management of browser bookmarks, including support for tagging, link checking, and searching bookmarks.
+</description>
  <lead>
   <name>Jan Schneider</name>
   <user>jan</user>
@@ -22,7 +23,7 @@
   <email>chuck@horde.org</email>
   <active>no</active>
  </lead>
- <date>2017-11-14</date>
+ <date>2020-03-08</date>
  <version>
   <release>1.1.10</release>
   <api>1.1.0</api>
@@ -33,7 +34,7 @@
  </stability>
  <license uri="http://www.horde.org/licenses/bsd">BSD-2-Clause</license>
  <notes>
-* [mjr] SECURITY: Fix Directory Traversal Vulnerability (Reported By: Andrea Cardaci working with Trend Micro Zero Day Initiative).
+* [mjr] SECURITY: Fix Directory Traversal Vulnerability (CVE-2020-8865, Reported By: Andrea Cardaci working with Trend Micro Zero Day Initiative).
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -903,10 +904,10 @@
     <release>stable</release>
     <api>stable</api>
    </stability>
-   <date>2017-09-19</date>
+   <date>2020-03-08</date>
    <license uri="http://www.horde.org/licenses/bsd">BSD-2-Clause</license>
    <notes>
-* [mjr] SECURITY: Fix Directory Traversal Vulnerability (Reported By: Andrea Cardaci working with Trend Micro Zero Day Initiative).
+* [mjr] SECURITY: Fix Directory Traversal Vulnerability (CVE-2020-8865, Reported By: Andrea Cardaci working with Trend Micro Zero Day Initiative).
    </notes>
   </release>
   <release>

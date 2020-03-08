@@ -18,12 +18,12 @@
   state:
     release: stable
     api: stable
-  date: 2017-09-19
+  date: 2020-03-09
   license:
     identifier: BSD-2-Clause
     uri: http://www.horde.org/licenses/bsd
   notes: |+
-    [mjr] SECURITY: Fix Directory Traversal Vulnerability (Reported By: Andrea Cardaci working with Trend Micro Zero Day Initiative).
+    [mjr] SECURITY: Fix Directory Traversal Vulnerability (CVE-2020-8865, Reported By: Andrea Cardaci working with Trend Micro Zero Day Initiative).
     
 1.1.9:
   api: 1.1.0

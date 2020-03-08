@@ -2,8 +2,8 @@
 v1.1.10
 -------
 
-[mjr] SECURITY: Fix Directory Traversal Vulnerability (Reported By: Andrea
-      Cardaci working with Trend Micro Zero Day Initiative).
+[mjr] SECURITY: Fix Directory Traversal Vulnerability (CVE-2020-8865, Reported
+      By: Andrea Cardaci working with Trend Micro Zero Day Initiative).
 
 
 
