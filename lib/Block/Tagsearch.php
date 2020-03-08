@@ -63,7 +63,7 @@ class Trean_Block_Tagsearch extends Horde_Core_Block
     {
         global $trean_gateway, $registry, $injector, $prefs;
 
-        $template = TREAN_TEMPLATES . '/block/' . $this->_params['template'] . '.inc';
+        $template = TREAN_TEMPLATES . '/block/' . basename($this->_params['template']) . '.inc';
 
         $html = '';
         $tagger = $injector->getInstance('Trean_Tagger');
