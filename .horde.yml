@@ -27,7 +27,7 @@ authors:
     active: false
     role: lead
 version:
-  release: 1.1.10
+  release: 1.1.11
   api: 1.1.0
 state:
   release: stable

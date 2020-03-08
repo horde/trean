@@ -13,6 +13,17 @@
     [mjr] Added removeUserData API (Request #13688).
     [mjr] Fix missing CSS rules for blocks.
     [mjr] Add new block for displaying bookmarks tagged with a certain set of tags (Request #13020).
+1.1.11:
+  api: 1.1.0
+  state:
+    release: stable
+    api: stable
+  date: 2020-03-08
+  license:
+    identifier: BSD-2-Clause
+    uri: http://www.horde.org/licenses/bsd
+  notes: |+
+    
 1.1.10:
   api: 1.1.0
   state:
