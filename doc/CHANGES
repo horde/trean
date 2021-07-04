@@ -1,6 +1,6 @@
-----------
-v2.0.0-git
-----------
+------
+v2.0.0
+------
 
 [mjr] Support import of HTML bookmark files.
 [mjr] Added removeUserData API (Request #13688).
@@ -12,6 +12,10 @@ v2.0.0-git
 -------
 v1.1.10
 -------
+
+[mjr] SECURITY: Fix Directory Traversal Vulnerability (Reported By: Andrea
+      Cardaci working with Trend Micro Zero Day Initiative).
+
 
 
 ------
