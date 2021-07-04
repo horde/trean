@@ -24,7 +24,7 @@
  </lead>
  <date>2021-07-04</date>
  <version>
-  <release>2.0.0</release>
+  <release>2.0.1</release>
   <api>2.0.0</api>
  </version>
  <stability>
@@ -33,10 +33,7 @@
  </stability>
  <license uri="http://www.horde.org/licenses/bsd">BSD-2-Clause</license>
  <notes>
-* [mjr] Support import of HTML bookmark files.
-* [mjr] Added removeUserData API (Request #13688).
-* [mjr] Fix missing CSS rules for blocks.
-* [mjr] Add new block for displaying bookmarks tagged with a certain set of tags (Request #13020).
+* 
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -437,6 +434,26 @@
   </filelist>
  </phprelease>
  <changelog>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
   <release>
    <version>
     <release>1.0.0beta1</release>
@@ -808,13 +825,28 @@
     <release>beta</release>
     <api>beta</api>
    </stability>
-   <date>2017-10-17</date>
+   <date>2021-07-04</date>
    <license uri="http://www.horde.org/licenses/bsd">BSD-2-Clause</license>
    <notes>
 * [mjr] Support import of HTML bookmark files.
 * [mjr] Added removeUserData API (Request #13688).
 * [mjr] Fix missing CSS rules for blocks.
 * [mjr] Add new block for displaying bookmarks tagged with a certain set of tags (Request #13020).
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>2.0.1</release>
+    <api>2.0.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2021-07-04</date>
+   <license uri="http://www.horde.org/licenses/bsd">BSD-2-Clause</license>
+   <notes>
+* 
    </notes>
   </release>
  </changelog>
