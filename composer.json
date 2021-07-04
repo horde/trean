@@ -1,13 +1,13 @@
 {
     "name": "horde/trean",
     "description": "Bookmarks application",
-    "type": "project",
+    "type": "horde-application",
     "homepage": "https://www.horde.org/apps/trean",
     "license": "BSD-2-Clause",
     "authors": [
         {
-            "name": "Chuck Hagenbuch",
-            "email": "chuck@horde.org",
+            "name": "Jan Schneider",
+            "email": "jan@horde.org",
             "role": "lead"
         },
         {
@@ -16,50 +16,53 @@
             "role": "lead"
         },
         {
-            "name": "Jan Schneider",
-            "email": "jan@horde.org",
+            "name": "Chuck Hagenbuch",
+            "email": "chuck@horde.org",
             "role": "lead"
         }
     ],
-    "version": "2.0.0",
-    "time": "2017-11-11",
+    "time": "2021-07-04",
     "repositories": [
         {
-            "type": "pear",
-            "url": "https://pear.horde.org"
+            "type": "composer",
+            "url": "https://horde-satis.maintaina.com/"
         }
     ],
     "require": {
-        "php": "^5.3 || ^7",
-        "pear-pear.horde.org/horde": "^5.0.2",
-        "pear-pear.horde.org/content": "^2.0.5",
-        "pear-pear.horde.org/Horde_Autoloader": "^2",
-        "pear-pear.horde.org/Horde_Controller": "^2",
-        "pear-pear.horde.org/Horde_Core": "^2.30",
-        "pear-pear.horde.org/Horde_Date": "^2",
-        "pear-pear.horde.org/Horde_Db": "^2",
-        "pear-pear.horde.org/Horde_Exception": "^2",
-        "pear-pear.horde.org/Horde_Form": "^2",
-        "pear-pear.horde.org/Horde_Notification": "^2",
-        "pear-pear.horde.org/Horde_Perms": "^2",
-        "pear-pear.horde.org/Horde_Queue": "^1",
-        "pear-pear.horde.org/Horde_Util": "^2",
-        "pear-pear.horde.org/Horde_Vfs": "^2",
-        "pear-pear.horde.org/Horde_View": "^2",
+        "horde/horde-installer-plugin": "*",
+        "php": "^7",
+        "horde/horde": "^6",
+        "horde/content": "^3",
+        "horde/autoloader": "^3",
+        "horde/controller": "^3",
+        "horde/core": "^3",
+        "horde/date": "^3",
+        "horde/db": "^3",
+        "horde/exception": "^3",
+        "horde/form": "^3",
+        "horde/notification": "^3",
+        "horde/perms": "^3",
+        "horde/queue": "^2",
+        "horde/util": "^3",
+        "horde/vfs": "^3",
+        "horde/view": "^3",
         "ext-gettext": "*",
         "ext-json": "*"
     },
+    "require-dev": {},
     "suggest": {
-        "pear-pear.horde.org/Horde_Browser": "^2",
-        "pear-pear.horde.org/Horde_Cache": "^2"
-    },
-    "replace": {
-        "pear-pear.horde.org/trean": "2.*",
-        "pear-horde/trean": "2.*"
+        "horde/browser": "^3",
+        "horde/cache": "^3"
     },
     "autoload": {
         "psr-0": {
             "Trean": "lib/"
         }
-    }
+    },
+    "bin": [
+        "bin/trean-backfill-remove-utm-params",
+        "bin/trean-backfill-crawler",
+        "bin/trean-url-checker",
+        "bin/trean-backfill-favicons"
+    ]
 }
