@@ -1,5 +1,4 @@
 {
-    "minimum-stability": "dev",
     "name": "horde/trean",
     "description": "Bookmarks application",
     "type": "horde-application",
@@ -22,43 +21,49 @@
             "role": "lead"
         }
     ],
-    "time": "2024-01-03",
+    "time": "2024-01-12",
     "repositories": [],
     "require": {
-        "horde/horde-installer-plugin": "dev-FRAMEWORK_6_0 || *",
-        "php": "^7 || ^8",
-        "horde/horde": "^6 || dev-FRAMEWORK_6_0",
-        "horde/content": "^3 || dev-FRAMEWORK_6_0",
-        "horde/autoloader": "^3 || dev-FRAMEWORK_6_0",
-        "horde/controller": "^3 || dev-FRAMEWORK_6_0",
-        "horde/core": "^3 || dev-FRAMEWORK_6_0",
-        "horde/date": "^3 || dev-FRAMEWORK_6_0",
-        "horde/db": "^3 || dev-FRAMEWORK_6_0",
-        "horde/exception": "^3 || dev-FRAMEWORK_6_0",
-        "horde/form": "^3 || dev-FRAMEWORK_6_0",
-        "horde/notification": "^3 || dev-FRAMEWORK_6_0",
-        "horde/perms": "^3 || dev-FRAMEWORK_6_0",
-        "horde/queue": "^2 || dev-FRAMEWORK_6_0",
-        "horde/util": "^3 || dev-FRAMEWORK_6_0",
-        "horde/vfs": "^3 || dev-FRAMEWORK_6_0",
-        "horde/view": "^3 || dev-FRAMEWORK_6_0",
+        "horde/horde-installer-plugin": "^2",
+        "php": "^7.4 || ^8",
+        "horde/horde": "^6",
+        "horde/content": "^3",
+        "horde/autoloader": "^3",
+        "horde/controller": "^3",
+        "horde/core": "^3",
+        "horde/date": "^3",
+        "horde/db": "^3",
+        "horde/exception": "^3",
+        "horde/form": "^3",
+        "horde/notification": "^3",
+        "horde/perms": "^3",
+        "horde/queue": "^2",
+        "horde/util": "^3",
+        "horde/vfs": "^3",
+        "horde/view": "^3",
         "ext-gettext": "*",
         "ext-json": "*"
     },
     "require-dev": {},
     "suggest": {
-        "horde/browser": "^3 || dev-FRAMEWORK_6_0",
-        "horde/cache": "^3 || dev-FRAMEWORK_6_0"
+        "horde/browser": "^3",
+        "horde/cache": "^3"
     },
     "autoload": {
         "psr-0": {
             "Trean": "lib/"
         }
     },
+    "autoload-dev": [],
     "bin": [
-        "bin/trean-backfill-remove-utm-params",
         "bin/trean-backfill-crawler",
-        "bin/trean-url-checker",
-        "bin/trean-backfill-favicons"
-    ]
+        "bin/trean-backfill-favicons",
+        "bin/trean-backfill-remove-utm-params",
+        "bin/trean-url-checker"
+    ],
+    "config": {
+        "allow-plugins": {
+            "horde/horde-installer-plugin": true
+        }
+    }
 }

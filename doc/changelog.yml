@@ -4,12 +4,13 @@
   state:
     release: alpha
     api: alpha
-  date: 2021-07-04
+  date: 2024-01-12
   license:
     identifier: BSD-2-Clause
     uri: http://www.horde.org/licenses/bsd
-  notes: |+
-    
+  notes: |
+    [rla] Properly mark as H6 and PHP 8 compatible.
+    |+
 2.0.0:
   api: 2.0.0
   state:

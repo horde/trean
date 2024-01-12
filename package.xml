@@ -22,7 +22,7 @@
   <email>chuck@horde.org</email>
   <active>no</active>
  </lead>
- <date>2021-07-04</date>
+ <date>2024-01-12</date>
  <version>
   <release>2.0.1</release>
   <api>2.0.0</api>
@@ -33,10 +33,16 @@
  </stability>
  <license uri="http://www.horde.org/licenses/bsd">BSD-2-Clause</license>
  <notes>
-* 
+* [rla] Properly mark as H6 and PHP 8 compatible.
+* |+
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
+   <dir name=".github">
+    <dir name="workflows">
+     <file name="update-satis.yml" role="horde" />
+    </dir> <!-- /.github/workflows -->
+   </dir> <!-- /.github -->
    <dir name="app">
     <dir name="controllers">
      <file name="BrowseByTag.php" role="horde" />
@@ -293,9 +299,9 @@
  <dependencies>
   <required>
    <php>
-    <min>7.0.0</min>
-    <max>8.0.0alpha1</max>
-    <exclude>8.0.0alpha1</exclude>
+    <min>7.4.0</min>
+    <max>9.0.0alpha1</max>
+    <exclude>9.0.0alpha1</exclude>
    </php>
    <pearinstaller>
     <min>1.7.0</min>
@@ -310,6 +316,7 @@
  </dependencies>
  <phprelease>
   <filelist>
+   <install as="trean/.github/workflows/update-satis.yml" name=".github/workflows/update-satis.yml" />
    <install as="trean/add.php" name="add.php" />
    <install as="trean/browse.php" name="browse.php" />
    <install as="trean/data.php" name="data.php" />
@@ -434,26 +441,6 @@
   </filelist>
  </phprelease>
  <changelog>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
   <release>
    <version>
     <release>1.0.0beta1</release>
@@ -840,13 +827,14 @@
     <api>2.0.0</api>
    </version>
    <stability>
-    <release>alpha</release>
-    <api>alpha</api>
+    <release>beta</release>
+    <api>beta</api>
    </stability>
    <date>2021-07-04</date>
    <license uri="http://www.horde.org/licenses/bsd">BSD-2-Clause</license>
    <notes>
-* 
+* [rla] Properly mark as H6 and PHP 8 compatible.
+* |+
    </notes>
   </release>
  </changelog>
