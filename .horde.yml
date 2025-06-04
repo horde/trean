@@ -39,7 +39,7 @@ license:
   uri: http://www.horde.org/licenses/bsd
 dependencies:
   required:
-    php: ^7.4 || ^8
+    php: ^8.2
     composer:
       horde/horde: ^6
       horde/content: ^3
@@ -63,3 +63,8 @@ dependencies:
     composer:
       horde/browser: ^3
       horde/cache: ^3
+autoload:
+  classmap:
+    - lib/
+  psr-4:
+    Horde\Trean\: /src

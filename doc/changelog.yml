@@ -2,26 +2,27 @@
 2.0.2:
   api: 2.0.0
   state:
-    release: alpha
-    api: alpha
-  date: 2024-01-12
-  license:
-    identifier: BSD-2-Clause
-    uri: http://www.horde.org/licenses/bsd
-  notes: |+
-    
-2.0.1:
-  api: 2.0.0
-  state:
-    release: alpha
-    api: alpha
-  date: 2024-01-12
+    release: beta
+    api: beta
+  date: 2025-06-04
   license:
     identifier: BSD-2-Clause
     uri: http://www.horde.org/licenses/bsd
   notes: |
-    [rla] Properly mark as H6 and PHP 8 compatible.
-    |+
+    style: Apply php-cs-fixer php8.3+ rules
+    fix: Use classmap for lib/ dir
+2.0.1:
+  api: 2.0.0
+  state:
+    release: stable
+    api: stable
+  date: 2025-06-04
+  license:
+    identifier: BSD-2-Clause
+    uri: http://www.horde.org/licenses/bsd
+  notes: |
+    chore: Add PHP 8 support
+    style: Horde 6 package metadata
 2.0.0:
   api: 2.0.0
   state:
@@ -155,6 +156,20 @@
     uri: http://www.horde.org/licenses/bsd
   notes: |
     [mjr] Fix fatal error due to botched merge.
+1.1.0-RC1:
+  api: 1.1.0
+  state:
+    release: beta
+    api: stable
+  date: ~
+  license:
+    identifier: BSD-2-Clause
+    uri: http://www.horde.org/licenses/bsd
+  notes: |
+    Original version string was 1.1.0RC1
+    [jan] Add Hungarian translation (Andras Galos <galosa@netinform.hu>).
+    [jan] Add Danish translation (Erling Preben Hansen <erling@eph.dk>).
+    [mjr] Add support for importing bookmarks from Mozilla's JSON format.
 1.1.0:
   api: 1.1.0
   state:
@@ -166,19 +181,6 @@
     uri: http://www.horde.org/licenses/bsd
   notes: |
     [mjr] Fix creating tags from folder names when importing bookmarks.
-1.1.0RC1:
-  api: 1.1.0
-  state:
-    release: beta
-    api: stable
-  date: ~
-  license:
-    identifier: BSD-2-Clause
-    uri: http://www.horde.org/licenses/bsd
-  notes: |
-    [jan] Add Hungarian translation (Andras Galos <galosa@netinform.hu>).
-    [jan] Add Danish translation (Erling Preben Hansen <erling@eph.dk>).
-    [mjr] Add support for importing bookmarks from Mozilla's JSON format.
 1.0.3:
   api: 1.0.0
   state:
@@ -213,31 +215,7 @@
     uri: http://www.horde.org/licenses/bsd
   notes: |
     [jan] Make Horde_Queue a mandatory dependency.
-1.0.0:
-  api: 1.0.0
-  state:
-    release: stable
-    api: stable
-  date: 2013-02-12
-  license:
-    identifier: BSD-2-Clause
-    uri: http://www.horde.org/licenses/bsd
-  notes: |
-    First stable release for Horde 5.
-1.0.0RC1:
-  api: 1.0.0
-  state:
-    release: beta
-    api: beta
-  date: 2013-01-10
-  license:
-    identifier: BSD-2-Clause
-    uri: http://www.horde.org/licenses/bsd
-  notes: |
-    [cjh] Strip utm_ parameters from incoming bookmarks, and provide a script to strip them from already-saved bookmarks (Request #10751).
-    [cjh] Implement listTagInfo and searchTags API calls for Trean (Bug #11816).
-    [cjh] Fix fetching, saving, and display of favicons.
-1.0.0beta2:
+1.0.0-beta2:
   api: 1.0.0
   state:
     release: beta
@@ -247,12 +225,13 @@
     identifier: BSD-2-Clause
     uri: http://www.horde.org/licenses/bsd
   notes: |
+    Original version string was 1.0.0beta2
     [cjh] Add a list of tags to the sidebar.
     [cjh] Crawl all bookmarks when they are saved or edited for fulltext searching if elasticsearch is available.
     [cjh] Turn search off by default (Bug #11701).
     [jan] Allow to set custom SQL parameters.
     [jan] Move search box to top menu.
-1.0.0beta1:
+1.0.0-beta1:
   api: 1.0.0
   state:
     release: beta
@@ -262,6 +241,7 @@
     identifier: BSD-2-Clause
     uri: http://www.horde.org/licenses/bsd
   notes: |
+    Original version string was 1.0.0beta1
     First beta release for Horde 5.
     [jan] Merge tag browser into bookmark listing.
     [mjr] Add tagging support.
@@ -323,3 +303,28 @@
     [mac] Add Edit and Delete options.
     [jan] Add Swedish translation (Andreas Dahlén <andreas@dahlen.ws>).
     [mac] Initial Trean Version.
+1.0.0-RC1:
+  api: 1.0.0
+  state:
+    release: beta
+    api: beta
+  date: 2013-01-10
+  license:
+    identifier: BSD-2-Clause
+    uri: http://www.horde.org/licenses/bsd
+  notes: |
+    Original version string was 1.0.0RC1
+    [cjh] Strip utm_ parameters from incoming bookmarks, and provide a script to strip them from already-saved bookmarks (Request #10751).
+    [cjh] Implement listTagInfo and searchTags API calls for Trean (Bug #11816).
+    [cjh] Fix fetching, saving, and display of favicons.
+1.0.0:
+  api: 1.0.0
+  state:
+    release: stable
+    api: stable
+  date: 2013-02-12
+  license:
+    identifier: BSD-2-Clause
+    uri: http://www.horde.org/licenses/bsd
+  notes: |
+    First stable release for Horde 5.

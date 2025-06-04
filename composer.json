@@ -21,11 +21,11 @@
             "role": "lead"
         }
     ],
-    "time": "2024-01-12",
+    "time": "2025-06-04",
     "repositories": [],
     "require": {
-        "horde/horde-installer-plugin": "dev-FRAMEWORK_6_0 || ^2",
-        "php": "^7.4 || ^8",
+        "horde/horde-installer-plugin": "dev-FRAMEWORK_6_0 || ^3 || ^2",
+        "php": "^8.2",
         "horde/horde": "^6 || dev-FRAMEWORK_6_0",
         "horde/content": "^3 || dev-FRAMEWORK_6_0",
         "horde/autoloader": "^3 || dev-FRAMEWORK_6_0",
@@ -50,11 +50,14 @@
         "horde/cache": "^3 || dev-FRAMEWORK_6_0"
     },
     "autoload": {
-        "psr-0": {
-            "Trean": "lib/"
+        "classmap": [
+            "lib/"
+        ],
+        "psr-4": {
+            "Horde\\Trean\\": "/src"
         }
     },
-    "autoload-dev": [],
+    "autoload-dev": {},
     "bin": [
         "bin/trean-backfill-crawler",
         "bin/trean-backfill-favicons",
@@ -64,6 +67,11 @@
     "config": {
         "allow-plugins": {
             "horde/horde-installer-plugin": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-FRAMEWORK_6_0": "2.x-dev"
         }
     }
 }
