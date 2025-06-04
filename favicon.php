@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2005-2017 Horde LLC (http://www.horde.org/)
  *
@@ -9,7 +10,7 @@
  */
 
 require_once __DIR__ . '/lib/Application.php';
-Horde_Registry::appInit('trean', array('session_control' => 'readonly'));
+Horde_Registry::appInit('trean', ['session_control' => 'readonly']);
 
 $bookmark_id = Horde_Util::getFormData('bookmark_id');
 if (!$bookmark_id) {

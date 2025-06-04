@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Trean external API interface.
  *
@@ -75,34 +76,40 @@ class Trean_Api extends Horde_Registry_Api
      *  'app'      - The Horde application this resource belongs to.
      * </pre>
      */
-    public function searchTags($names, $max = 10, $from = 0,
-                               $resource_type = '', $user = null, $raw = false)
-    {
+    public function searchTags(
+        $names,
+        $max = 10,
+        $from = 0,
+        $resource_type = '',
+        $user = null,
+        $raw = false
+    ) {
         // TODO: $max, $from, $resource_type not honored
 
         $results = $GLOBALS['injector']
             ->getInstance('Trean_Tagger')
             ->search(
                 $names,
-                array('type' => 'bookmark', 'user' => $user));
+                ['type' => 'bookmark', 'user' => $user]
+            );
 
         // Check for error or if we requested the raw data array.
         if ($raw) {
             return $results;
         }
 
-        $return = array();
+        $return = [];
         $redirectUrl = Horde::url('redirect.php');
         foreach ($results as $bookmark_id) {
             try {
                 $bookmark = $GLOBALS['trean_gateway']->getBookmark($bookmark_id);
-                $return[] = array(
+                $return[] = [
                     'title' => $bookmark->title,
                     'desc' => empty($bookmark->description) ? $bookmark->title : $bookmark->description,
                     'view_url' => $redirectUrl->add('b', $bookmark->id),
                     'app' => 'trean',
-                    'icon' => $bookmark->favicon_url
-                );
+                    'icon' => $bookmark->favicon_url,
+                ];
             } catch (Exception $e) {
             }
         }
@@ -120,7 +127,7 @@ class Trean_Api extends Horde_Registry_Api
      *                       bookmark.
      * @return string  The URL suitable for use in a <a> tag.
      */
-    public function getAddUrl($params = array())
+    public function getAddUrl($params = [])
     {
         $GLOBALS['no_compress'] = true;
 

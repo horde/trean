@@ -1,4 +1,5 @@
 <?php
+
 /**
  * See horde/config/prefs.php for documentation on the structure of this file.
  *
@@ -8,40 +9,40 @@
  * use prefs-servername.php.
  */
 
-$prefGroups['display'] = array(
+$prefGroups['display'] = [
     'column' => _("Other Preferences"),
     'label' => _("Display Preferences"),
     'desc' => _("Set how to display bookmark listings and how to open links."),
-    'members' => array('sortby', 'sortdir', 'show_in_new_window')
-);
+    'members' => ['sortby', 'sortdir', 'show_in_new_window'],
+];
 
 // bookmark sort order
-$_prefs['sortby'] = array(
+$_prefs['sortby'] = [
     'value' => 'dt',
     'locked' => false,
     'type' => 'enum',
-    'enum' => array(
+    'enum' => [
         'title' => _("Title"),
         'clicks' => _("Most Clicked"),
         'dt' => _("Bookmarked on"),
-    ),
+    ],
     'desc' => _("Sort bookmarks by:"),
-);
+];
 
 // user preferred sorting direction
-$_prefs['sortdir'] = array(
+$_prefs['sortdir'] = [
     'value' => 1,
     'locked' => false,
     'type' => 'enum',
-    'enum' => array(0 => _("Ascending (A to Z or oldest to newest)"),
-                    1 => _("Descending (9 to 1 or newest to oldest)")),
+    'enum' => [0 => _("Ascending (A to Z or oldest to newest)"),
+        1 => _("Descending (9 to 1 or newest to oldest)")],
     'desc' => _("Sort direction:"),
-);
+];
 
 // Open links in new windows?
-$_prefs['show_in_new_window'] = array(
+$_prefs['show_in_new_window'] = [
     'value' => 1,
     'locked' => false,
     'type' => 'checkbox',
-    'desc' => _("Open links in a new window?")
-);
+    'desc' => _("Open links in a new window?"),
+];

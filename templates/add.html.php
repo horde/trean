@@ -2,8 +2,8 @@
 <?php echo Horde_Util::formInput() ?>
 <input type="hidden" name="newFolder" value="" />
 <input type="hidden" name="actionID" value="add_bookmark" />
-<input type="hidden" name="popup" value="<?php echo (int)Horde_Util::getFormData('popup') ?>" />
-<input type="hidden" name="iframe" value="<?php echo (int)Horde_Util::getFormData('iframe') ?>" />
+<input type="hidden" name="popup" value="<?php echo (int) Horde_Util::getFormData('popup') ?>" />
+<input type="hidden" name="iframe" value="<?php echo (int) Horde_Util::getFormData('iframe') ?>" />
 
 <h1 class="header">
   <?php echo _("New Bookmark") ?>

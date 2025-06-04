@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Steps to perform to bring the database tables from the old folder structure
  * up to being ready for the new tags structure.
@@ -34,13 +35,13 @@ class TreanUpgradeFoldersToTagsPre extends Horde_Db_Migration_Base
         }
 
         if (!in_array('user_id', array_keys($cols))) {
-            $this->addColumn('trean_bookmarks', 'user_id', 'integer', array('unsigned' => true));
-            $this->addIndex('trean_bookmarks', array('user_id'));
+            $this->addColumn('trean_bookmarks', 'user_id', 'integer', ['unsigned' => true]);
+            $this->addIndex('trean_bookmarks', ['user_id']);
         }
 
-        $this->changeColumn('trean_bookmarks', 'bookmark_clicks', 'integer', array('unsigned' => true, 'default' => 0));
-        $this->changeColumn('trean_bookmarks', 'bookmark_description', 'string', array('limit' => 1024));
-        $this->changeColumn('trean_bookmarks', 'bookmark_url', 'string', array('limit' => 1024));
+        $this->changeColumn('trean_bookmarks', 'bookmark_clicks', 'integer', ['unsigned' => true, 'default' => 0]);
+        $this->changeColumn('trean_bookmarks', 'bookmark_description', 'string', ['limit' => 1024]);
+        $this->changeColumn('trean_bookmarks', 'bookmark_url', 'string', ['limit' => 1024]);
     }
 
     /**
@@ -50,8 +51,8 @@ class TreanUpgradeFoldersToTagsPre extends Horde_Db_Migration_Base
     {
         $this->removeColumn('trean_bookmarks', 'user_id');
         $this->removeColumn('trean_bookmarks', 'bookmark_dt');
-        $this->changeColumn('trean_bookmarks', 'bookmark_id', 'integer', array('null' => false));
-        $this->changeColumn('trean_bookmarks', 'bookmark_url', 'string', array('limit' => 255));
-        $this->changeColumn('trean_bookmarks', 'bookmark_description', 'string', array('limit' => 255));
+        $this->changeColumn('trean_bookmarks', 'bookmark_id', 'integer', ['null' => false]);
+        $this->changeColumn('trean_bookmarks', 'bookmark_url', 'string', ['limit' => 255]);
+        $this->changeColumn('trean_bookmarks', 'bookmark_description', 'string', ['limit' => 255]);
     }
 }

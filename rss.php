@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2007-2017 Horde LLC (http://www.horde.org/)
  *
@@ -28,8 +29,10 @@ if (!$rss) {
         </image>
         <generator>' . htmlspecialchars($registry->get('name')) . '</generator>';
 
-    $bookmarks = $trean_gateway->listBookmarks($prefs->getValue('sortby'),
-                                               $prefs->getValue('sortdir'));
+    $bookmarks = $trean_gateway->listBookmarks(
+        $prefs->getValue('sortby'),
+        $prefs->getValue('sortdir')
+    );
     foreach ($bookmarks as $bookmark) {
         if (!$bookmark->url) {
             continue;

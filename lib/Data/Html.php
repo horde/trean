@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Horde_Data implementation for Mozilla's HTML format.
  *
@@ -14,13 +15,13 @@ class Trean_Data_Html extends Horde_Data_Base
 {
     protected $_extension = 'html';
     protected $_contentType = 'text/html';
-    protected $_folders = array();
+    protected $_folders = [];
 
     public function importData($contents, $header = false)
     {
-        $data = array();
+        $data = [];
         $lines = file($contents);
-        $rows = array();
+        $rows = [];
         foreach ($lines as $line) {
             if (strpos($line, '<DT><H3') !== false) {
                 // Start of a folder.
@@ -30,16 +31,16 @@ class Trean_Data_Html extends Horde_Data_Base
                 // End of folder.
             } elseif (preg_match("/<DT><A HREF=\"*(.*?)\" ADD_DATE=\"*(.*?)\".*>(.*)<\/A>/", $line, $temp)) {
                 // Bookmark.
-                $rows[] = array(
+                $rows[] = [
                     'bookmark_url' => trim($temp[1]),
                     'bookmark_title' => (count($temp) > 3) ? trim($temp[3]) : trim($temp[2]),
                     'bookmark_description' => '',
                     'bookmark_tags' => $this->_folders,
-                    'bookmark_dt' => (count($temp) > 3) ? new Horde_Date($temp[2]) : false
-                );
+                    'bookmark_dt' => (count($temp) > 3) ? new Horde_Date($temp[2]) : false,
+                ];
             } elseif (strpos($line, '<DD>') !== false) {
-                    // Should be description of previous bookmark.
-                    $rows[count($rows) - 1]['bookmark_description'] = trim(strip_tags($line));
+                // Should be description of previous bookmark.
+                $rows[count($rows) - 1]['bookmark_description'] = trim(strip_tags($line));
             }
         }
 
@@ -58,12 +59,12 @@ class Trean_Data_Html extends Horde_Data_Base
      *                data set after the final step.
      * @throws Horde_Data_Exception
      */
-    public function nextStep($action, $param = array())
+    public function nextStep($action, $param = [])
     {
         switch ($action) {
-        case Horde_Data::IMPORT_FILE:
-            parent::nextStep($action, $param);
-            return $this->importData($_FILES['import_file']['tmp_name']);
+            case Horde_Data::IMPORT_FILE:
+                parent::nextStep($action, $param);
+                return $this->importData($_FILES['import_file']['tmp_name']);
         }
     }
 

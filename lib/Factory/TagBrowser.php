@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The factory for the calendars handler.
  *
@@ -15,7 +16,7 @@ class Trean_Factory_TagBrowser
      *
      * @var Horde_Injector
      */
-    protected  $_injector;
+    protected $_injector;
 
     /**
      * The tag browser

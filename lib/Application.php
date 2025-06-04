@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Trean application API
  *
@@ -71,12 +72,12 @@ class Trean_Application extends Horde_Registry_Application
      */
     public function perms()
     {
-        return array(
-            'max_bookmarks' => array(
+        return [
+            'max_bookmarks' => [
                 'title' => _("Maximum Number of Bookmarks"),
-                'type' => 'int'
-            ),
-        );
+                'type' => 'int',
+            ],
+        ];
     }
 
     /**
@@ -96,24 +97,25 @@ class Trean_Application extends Horde_Registry_Application
     {
         $sidebar->addNewButton(_("_New Bookmark"), Horde::url('add.php'));
 
-        $sidebar->containers['tags'] = array(
-            'header' => array(
+        $sidebar->containers['tags'] = [
+            'header' => [
                 'id' => 'trean-toggle-tags',
                 'label' => _("Tags"),
                 'collapsed' => false,
-            ),
-        );
+            ],
+        ];
 
         $tagger = $GLOBALS['injector']->getInstance('Trean_Tagger');
         $tags = $tagger->listBookmarkTags();
         natcasesort($tags);
-        foreach ($tags as $tag) {;
+        foreach ($tags as $tag) {
+            ;
             $url = Horde::url('tag/' . urlencode($tag));
-            $row = array(
+            $row = [
                 'url' => $url,
                 'cssClass' => 'trean-tag',
                 'label' => $tag,
-            );
+            ];
             $sidebar->addRow($row, 'tags');
         }
     }
@@ -139,8 +141,8 @@ class Trean_Application extends Horde_Registry_Application
                 $GLOBALS['trean_gateway']->removeBookmark($bookmark);
             }
         } catch (Content_Exception $e) {
-           throw new Trean_Exception(sprintf(_("There was an error removing bookmarks for %s. Details have been logged."), $user));
-           Horde::log($e, 'NOTICE');
+            throw new Trean_Exception(sprintf(_("There was an error removing bookmarks for %s. Details have been logged."), $user));
+            Horde::log($e, 'NOTICE');
         }
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2010-2017 Horde LLC (http://www.horde.org/)
  *
@@ -12,7 +13,6 @@
  */
 class Trean_Ajax_Imple_TopTags extends Horde_Core_Ajax_Imple
 {
-
     /**
      * Attach the object to a javascript event.
      *
@@ -31,7 +31,7 @@ class Trean_Ajax_Imple_TopTags extends Horde_Core_Ajax_Imple
             $GLOBALS['page_output']->addScriptFile('scriptaculous/effects.js', 'horde');
         }
 
-        return array('imple' => 'TopTags');
+        return ['imple' => 'TopTags'];
     }
 
     /**
@@ -45,9 +45,12 @@ class Trean_Ajax_Imple_TopTags extends Horde_Core_Ajax_Imple
     {
         $tagger = new Trean_Tagger();
         $result = new stdClass();
-        $result->tags = array();
+        $result->tags = [];
         $tags = $tagger->getCloud(
-            $GLOBALS['registry']->getAuth(), 10, true);
+            $GLOBALS['registry']->getAuth(),
+            10,
+            true
+        );
         foreach ($tags as $tag) {
             $results->tags[] = $tag['tag_name'];
         }

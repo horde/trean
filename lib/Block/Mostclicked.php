@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Show the most-clicked bookmarks.
  *
@@ -13,7 +14,7 @@ class Trean_Block_Mostclicked extends Horde_Core_Block
 {
     /**
      */
-    public function __construct($app, $params = array())
+    public function __construct($app, $params = [])
     {
         parent::__construct($app, $params);
         $this->_name = _("Most-clicked Bookmarks");
@@ -23,28 +24,28 @@ class Trean_Block_Mostclicked extends Horde_Core_Block
      */
     protected function _params()
     {
-        return array(
-            'rows' => array(
+        return [
+            'rows' => [
                 'name' => _("Number of bookmarks to show"),
                 'type' => 'enum',
                 'default' => '10',
-                'values' => array(
+                'values' => [
                     '10' => _("10 rows"),
                     '15' => _("15 rows"),
-                    '25' => _("25 rows")
-                )
-            ),
-            'template' => array(
+                    '25' => _("25 rows"),
+                ],
+            ],
+            'template' => [
                 'name' => _("Template"),
                 'type' => 'enum',
                 'default' => '1line',
-                'values' => array(
+                'values' => [
                     'standard' => _("3 Line"),
                     '2line' => _("2 Line"),
-                    '1line' => _("1 Line")
-                )
-            )
-        );
+                    '1line' => _("1 Line"),
+                ],
+            ],
+        ];
     }
 
     /**

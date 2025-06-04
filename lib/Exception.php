@@ -1,4 +1,3 @@
 <?php
-class Trean_Exception extends Horde_Exception
-{
-}
+
+class Trean_Exception extends Horde_Exception {}

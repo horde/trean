@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Trean interface to the Horde_Content tagger
  *
@@ -11,7 +12,7 @@
 class Trean_Tagger extends Horde_Core_Tagger
 {
     protected $_app = 'trean';
-    protected $_types = array('bookmark');
+    protected $_types = ['bookmark'];
 
     /**
      * Searches for resources that are tagged with all of the requested tags.
@@ -24,9 +25,9 @@ class Trean_Tagger extends Horde_Core_Tagger
      * @return  array An array of bookmark ids
      * @throws Trean_Exception
      */
-    public function search($tags, $filter = array())
+    public function search($tags, $filter = [])
     {
-        $args = array();
+        $args = [];
 
         /* Add the tags to the search */
         $args['tagId'] = $GLOBALS['injector']
@@ -55,9 +56,10 @@ class Trean_Tagger extends Horde_Core_Tagger
     {
         try {
             return $GLOBALS['injector']->getInstance('Content_Tagger')
-                ->getTags(array(
-                    'typeId' => $this->_type_ids['bookmark'],
-                    'userId' => $GLOBALS['registry']->getAuth())
+                ->getTags(
+                    [
+                        'typeId' => $this->_type_ids['bookmark'],
+                        'userId' => $GLOBALS['registry']->getAuth()]
                 );
         } catch (Content_Exception $e) {
             throw new Trean_Exception($e);

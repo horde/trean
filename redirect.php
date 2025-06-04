@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Records clicks and clean the URL with Horde::externalUrl().
  *

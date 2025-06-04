@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2001-2017 Horde LLC (http://www.horde.org/)
  *
@@ -13,20 +14,20 @@ require_once __DIR__ . '/lib/Application.php';
 $app_ob = Horde_Registry::appInit('trean');
 
 /* Importable file types. */
-$file_types = array(
+$file_types = [
     'json' => _("Firefox JSON"),
-    'html' => _("Netscape-style HTML file"));
+    'html' => _("Netscape-style HTML file")];
 
 /* Templates for the different import steps. */
-$templates = array(
-    Horde_Data::IMPORT_FILE => array($registry->get('templates', 'trean') . '/data/import.inc')
-);
+$templates = [
+    Horde_Data::IMPORT_FILE => [$registry->get('templates', 'trean') . '/data/import.inc'],
+];
 
 /* Initial values. */
 $actionID      = Horde_Util::getFormData('actionID');
 $next_step     = Horde_Data::IMPORT_FILE;
 $import_step   = Horde_Data::IMPORT_FILE;
-$param = array('file_types' => $file_types);
+$param = ['file_types' => $file_types];
 
 $import_format = Horde_Util::getFormData('import_format', '');
 $storage = $injector->getInstance('Horde_Core_Data_Storage');
@@ -35,21 +36,21 @@ if ($import_format) {
     $data = null;
 
     switch ($import_format) {
-    case 'html':
-        $class = 'Trean_Data_Html';
-        break;
-    case 'json':
-    default:
-        $class = 'Trean_Data_Json';
-        break;
+        case 'html':
+            $class = 'Trean_Data_Html';
+            break;
+        case 'json':
+        default:
+            $class = 'Trean_Data_Json';
+            break;
     }
     try {
         $data = new $class(
             $injector->getInstance('Horde_Core_Data_Storage'),
-            array(
+            [
                 'browser' => $injector->getInstance('Horde_Browser'),
-                'cleanup' => array($app_ob, 'cleanupData')
-            )
+                'cleanup' => [$app_ob, 'cleanupData'],
+            ]
         );
 
         if ($actionID == Horde_Data::IMPORT_FILE) {
@@ -75,7 +76,7 @@ if ($import_format) {
 
 /* We have a final result set. */
 if (is_array($next_step)) {
-    $events = array();
+    $events = [];
     $error = false;
     if (!count($next_step)) {
         $notification->push(_("The file didn't contain any bookmarks."), 'horde.error');
@@ -100,10 +101,10 @@ if (is_array($next_step)) {
     $next_step = $data->cleanup();
 }
 
-$page_output->header(array(
-    'title' => _("Import Bookmarks")
-));
-$notification->notify(array('listeners' => 'status'));
+$page_output->header([
+    'title' => _("Import Bookmarks"),
+]);
+$notification->notify(['listeners' => 'status']);
 
 foreach ($templates[$next_step] as $template) {
     require $template;

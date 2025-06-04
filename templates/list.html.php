@@ -9,9 +9,15 @@ function table_sortCallback(tableId, column, sortDown)
 <table class="horde-table sortable" cellspacing="0">
 <thead>
  <tr>
-  <th id="s_title" class="horde-split-left<?php if ($this->sortby == 'title') echo ' ' . $this->sortdirclass ?>"><?php echo _("Title") ?></th>
-  <th id="s_dt"<?php if ($this->sortby == 'dt') echo ' class="' . $this->sortdirclass . '"' ?>><?php echo _("Added")?></th>
-  <th id="s_clicks" class="horde-split-left<?php if ($this->sortby == 'clicks') echo ' ' . $this->sortdirclass ?>" width="1%"><?php echo _("Clicks") ?></th>
+  <th id="s_title" class="horde-split-left<?php if ($this->sortby == 'title') {
+      echo ' ' . $this->sortdirclass;
+  } ?>"><?php echo _("Title") ?></th>
+  <th id="s_dt"<?php if ($this->sortby == 'dt') {
+      echo ' class="' . $this->sortdirclass . '"';
+  } ?>><?php echo _("Added")?></th>
+  <th id="s_clicks" class="horde-split-left<?php if ($this->sortby == 'clicks') {
+      echo ' ' . $this->sortdirclass;
+  } ?>" width="1%"><?php echo _("Clicks") ?></th>
   <th width="10%" class="horde-split-left nosort"></th>
  </tr>
 </thead>
@@ -21,16 +27,16 @@ function table_sortCallback(tableId, column, sortDown)
   <td>
    <div class="trean-bookmarks-title">
     <div class="trean-favicon-container">
-     <?php echo Horde::img(Trean::getFavicon($bookmark), '', array('class' => 'trean-favicon')) ?>
+     <?php echo Horde::img(Trean::getFavicon($bookmark), '', ['class' => 'trean-favicon']) ?>
     </div>
     <?php
 if ($bookmark->http_status == 'error') {
     echo Horde::img('http/error.png');
 } elseif ($bookmark->http_status) {
-    echo Horde::img('http/' . (int)substr($bookmark->http_status, 0, 1) . 'xx.png');
+    echo Horde::img('http/' . (int) substr($bookmark->http_status, 0, 1) . 'xx.png');
 }
-    ?>
-    <?php echo $this->redirectUrl->add('b', $bookmark->id)->link(array('target' => $this->target)) . $this->h($bookmark->title ? $bookmark->title : $bookmark->url) ?></a>
+     ?>
+    <?php echo $this->redirectUrl->add('b', $bookmark->id)->link(['target' => $this->target]) . $this->h($bookmark->title ? $bookmark->title : $bookmark->url) ?></a>
     <small>
       <?php echo $this->h($bookmark->url) ?>
       <?php if (strlen($bookmark->description)): ?>
@@ -41,23 +47,26 @@ if ($bookmark->http_status == 'error') {
     <ul class="horde-tags">
      <?php natcasesort($bookmark->tags);?>
      <?php foreach ($bookmark->tags as $tag):
-            $url = $GLOBALS['injector']->getInstance('Trean_TagBrowser')->addTagLink($tag);
-     ?>
+         $url = $GLOBALS['injector']->getInstance('Trean_TagBrowser')->addTagLink($tag);
+         ?>
      <li><a href="<?php echo $url ?>"><?php echo $this->h($tag) ?></a></li>
      <?php endforeach ?>
     </ul>
    </div>
   </td>
   <td class="trean-bookmarks-date">
-   <?php if ($bookmark->dt) { $dt = new Horde_Date($bookmark->dt); echo $dt->strftime($GLOBALS['prefs']->getValue('date_format')); } ?>
+   <?php if ($bookmark->dt) {
+       $dt = new Horde_Date($bookmark->dt);
+       echo $dt->strftime($GLOBALS['prefs']->getValue('date_format'));
+   } ?>
   </td>
   <td class="trean-bookmarks-clicks">
    <?php echo $bookmark->clicks ?>
   </td>
   <td class="trean-bookmarks-actions">
-   <a href="<?php echo Horde::url('edit.php')->add('bookmark', (int)$bookmark->id) ?>"><?php echo Horde::img('edit.png', _("Edit")) ?></a>
+   <a href="<?php echo Horde::url('edit.php')->add('bookmark', (int) $bookmark->id) ?>"><?php echo Horde::img('edit.png', _("Edit")) ?></a>
    <form action="<?php echo Horde::url('b/delete') ?>" method="post">
-    <input type="hidden" name="bookmark" value="<?php echo (int)$bookmark->id ?>" />
+    <input type="hidden" name="bookmark" value="<?php echo (int) $bookmark->id ?>" />
     <input type="hidden" name="url" value="<?php echo $this->h(Horde::selfUrl(true)) ?>" />
     <input type="image" src="<?php echo Horde_Themes::img('delete.png') ?>" />
    </form>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Trean index script.
  *

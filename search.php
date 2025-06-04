@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright 2002-2017 Horde LLC (http://www.horde.org/)
@@ -32,10 +33,10 @@ if ($GLOBALS['conf']['content_index']['enabled']) {
 
 Trean::addFeedLink();
 
-$page_output->header(array(
-    'title' => _("Search")
-));
-$notification->notify(array('listeners' => 'status'));
+$page_output->header([
+    'title' => _("Search"),
+]);
+$notification->notify(['listeners' => 'status']);
 
 // Display the results.
 if (strlen($vars->searchfield)) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2002-2017 Horde LLC (http://www.horde.org/)
  *
@@ -27,9 +28,9 @@ if ($GLOBALS['conf']['content_index']['enabled']) {
 }
 
 Trean::addFeedLink();
-$page_output->header(array(
-    'title' => _("Browse")
-));
-$notification->notify(array('listeners' => 'status'));
+$page_output->header([
+    'title' => _("Browse"),
+]);
+$notification->notify(['listeners' => 'status']);
 echo $view->render();
 $page_output->footer();

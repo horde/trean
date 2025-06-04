@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Tag browsing
  *
@@ -68,22 +69,22 @@ class Trean_View_BookmarkList
 
         $action = Horde_Util::getFormData('actionID', '');
         switch ($action) {
-        case 'remove':
-            $tag = Horde_Util::getFormData('tag');
-            if (isset($tag)) {
-                $this->_browser->removeTag($tag);
-                $this->_browser->save();
-            }
-            break;
+            case 'remove':
+                $tag = Horde_Util::getFormData('tag');
+                if (isset($tag)) {
+                    $this->_browser->removeTag($tag);
+                    $this->_browser->save();
+                }
+                break;
 
-        case 'add':
-        default:
-            // Add new tag to the stack, save to session.
-            $tag = Horde_Util::getFormData('tag');
-            if (isset($tag)) {
-                $this->_browser->addTag($tag);
-                $this->_browser->save();
-            }
+            case 'add':
+            default:
+                // Add new tag to the stack, save to session.
+                $tag = Horde_Util::getFormData('tag');
+                if (isset($tag)) {
+                    $this->_browser->addTag($tag);
+                    $this->_browser->save();
+                }
         }
 
         // Check for empty tag search.. then do what?
@@ -106,8 +107,8 @@ class Trean_View_BookmarkList
     public function hasBookmarks()
     {
         $this->_getBookmarks();
-        return (bool)count($this->_bookmarks) ||
-            (bool)$this->_browser->tagCount();
+        return (bool) count($this->_bookmarks) ||
+            (bool) $this->_browser->tagCount();
     }
 
     /**
@@ -144,7 +145,8 @@ class Trean_View_BookmarkList
                     $GLOBALS['prefs']->getValue('sortby'),
                     $GLOBALS['prefs']->getValue('sortdir'),
                     $this->_page,
-                    $this->_perPage);
+                    $this->_perPage
+                );
         } else {
             $this->_bookmarks = $this->_browser->getSlice($this->_page, $this->_perPage);
         }
@@ -179,9 +181,9 @@ class Trean_View_BookmarkList
      */
     protected function _getRelatedTags()
     {
-        $uids = array();
+        $uids = [];
         foreach ($this->_bookmarks as $bookmark) {
-            $uids[] = (string)$bookmark->id;
+            $uids[] = (string) $bookmark->id;
         }
         $rtags = $this->_browser->getRelatedTags($uids);
         if (count($rtags)) {
@@ -229,7 +231,7 @@ class Trean_View_BookmarkList
     protected function _linkRemoveTag($tag)
     {
         return Horde::url('browse.php')
-            ->add(array('actionID' => 'remove', 'tag' => $tag));
+            ->add(['actionID' => 'remove', 'tag' => $tag]);
     }
 
 }

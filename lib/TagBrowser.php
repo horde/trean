@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Trean_TagBrowser:: class provides logic for dealing with tag browsing.
  *
@@ -21,9 +22,7 @@ class Trean_TagBrowser extends Horde_Core_TagBrowser
      *
      * @return  Return information useful for building a tag trail.
      */
-    public function getTagTrail()
-    {
-    }
+    public function getTagTrail() {}
 
     /**
      * Fetch the matching resources that should appear on the current page
@@ -41,7 +40,7 @@ class Trean_TagBrowser extends Horde_Core_TagBrowser
         $start = $page * $perpage;
         $results = array_slice($this->_results, $start, $perpage);
 
-        $bookmarks = array();
+        $bookmarks = [];
         foreach ($results as $id) {
             try {
                 $bookmarks[] = $injector
@@ -64,7 +63,7 @@ class Trean_TagBrowser extends Horde_Core_TagBrowser
      */
     public function addTagLink($tag)
     {
-        return Horde::url('browse.php')->add(array('tag' => $tag));
+        return Horde::url('browse.php')->add(['tag' => $tag]);
     }
 
 }

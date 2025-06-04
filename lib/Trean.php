@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Trean Base Class.
  *
@@ -20,7 +21,7 @@ class Trean
      *
      * @return mixed  The value of the specified permission.
      */
-    static function hasPermission($permission)
+    public static function hasPermission($permission)
     {
         $perms = $GLOBALS['injector']->getInstance('Horde_Perms');
         if (!$perms->exists('trean:' . $permission)) {
@@ -28,13 +29,15 @@ class Trean
         }
 
         $allowed = $perms->getPermissions(
-            'trean:' . $permission, $GLOBALS['registry']->getAuth());
+            'trean:' . $permission,
+            $GLOBALS['registry']->getAuth()
+        );
         if (is_array($allowed)) {
             switch ($permission) {
-            case 'max_folders':
-            case 'max_bookmarks':
-                $allowed = max($allowed);
-                break;
+                case 'max_folders':
+                case 'max_bookmarks':
+                    $allowed = max($allowed);
+                    break;
             }
         }
 
@@ -48,7 +51,7 @@ class Trean
      *
      * @return  Horde_Url The URL for the image.
      */
-    static function getFavicon($bookmark)
+    public static function getFavicon($bookmark)
     {
         if ($bookmark->favicon_url) {
             return Horde::url('favicon.php')->add('bookmark_id', $bookmark->id);
@@ -66,16 +69,16 @@ class Trean
             $rss->add('label', $label);
         }
 
-        $GLOBALS['page_output']->addLinkTag(array(
+        $GLOBALS['page_output']->addLinkTag([
             'href' => $rss,
-            'title' => _("Bookmarks Feed")
-        ));
+            'title' => _("Bookmarks Feed"),
+        ]);
     }
 
     public static function bookmarkletLink()
     {
         $view = $GLOBALS['injector']->createInstance('Horde_View');
-        $view->url = Horde::url('add.php', true, array('append_session' => -1))
+        $view->url = Horde::url('add.php', true, ['append_session' => -1])
             ->add('popup', 1);
         $view->image = Horde::img('add.png');
         return $view->render('bookmarklet');

@@ -1,4 +1,5 @@
 <?php
+
 class Trean_BrowseByTag_Controller extends Horde_Controller_Base
 {
     public function processRequest(Horde_Controller_Request $request, Horde_Controller_Response $response)
@@ -21,10 +22,10 @@ class Trean_BrowseByTag_Controller extends Horde_Controller_Base
 
         Trean::addFeedLink();
         $title = sprintf(_("Tagged with %s"), urldecode($tag));
-        $page_output->header(array(
-            'title' => $title
-        ));
-        $notification->notify(array('listeners' => 'status'));
+        $page_output->header([
+            'title' => $title,
+        ]);
+        $notification->notify(['listeners' => 'status']);
         echo $view->render($title);
         $page_output->footer();
     }

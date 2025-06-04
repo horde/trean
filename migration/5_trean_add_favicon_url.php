@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Add favicon_url field.
  *
@@ -19,7 +20,7 @@ class TreanAddFaviconUrl extends Horde_Db_Migration_Base
      */
     public function up()
     {
-        $this->addColumn('trean_bookmarks', 'favicon_url', 'string', array('limit' => 255));
+        $this->addColumn('trean_bookmarks', 'favicon_url', 'string', ['limit' => 255]);
     }
 
     /**

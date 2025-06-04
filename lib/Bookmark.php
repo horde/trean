@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author  Ben Chavet <ben@horde.org>
  * @package Trean
@@ -14,11 +15,11 @@ class Trean_Bookmark
     public $http_status = null;
     public $favicon_url;
     public $dt;
-    public $tags = array();
+    public $tags = [];
 
     /**
      */
-    public function __construct($bookmark = array())
+    public function __construct($bookmark = [])
     {
         if ($bookmark) {
             $this->userId = $bookmark['user_id'];
@@ -27,10 +28,10 @@ class Trean_Bookmark
             $this->description = $bookmark['bookmark_description'];
 
             if (!empty($bookmark['bookmark_id'])) {
-                $this->id = (int)$bookmark['bookmark_id'];
+                $this->id = (int) $bookmark['bookmark_id'];
             }
             if (!empty($bookmark['bookmark_clicks'])) {
-                $this->clicks = (int)$bookmark['bookmark_clicks'];
+                $this->clicks = (int) $bookmark['bookmark_clicks'];
             }
             if (!empty($bookmark['bookmark_http_status'])) {
                 $this->http_status = $bookmark['bookmark_http_status'];
@@ -65,7 +66,8 @@ class Trean_Bookmark
 
         if ($this->id) {
             // Update an existing bookmark.
-            $GLOBALS['trean_db']->update('
+            $GLOBALS['trean_db']->update(
+                '
                 UPDATE trean_bookmarks
                 SET user_id = ?,
                     bookmark_url = ?,
@@ -75,7 +77,7 @@ class Trean_Bookmark
                     bookmark_http_status = ?,
                     favicon_url = ?
                 WHERE bookmark_id = ?',
-                array(
+                [
                     $this->userId,
                     $c_url,
                     $c_title,
@@ -84,12 +86,14 @@ class Trean_Bookmark
                     $this->http_status,
                     $c_favicon_url,
                     $this->id,
-            ));
+                ]
+            );
 
-            $GLOBALS['injector']->getInstance('Trean_Tagger')->replaceTags((string)$this->id, $this->tags, $GLOBALS['registry']->getAuth(), 'bookmark');
+            $GLOBALS['injector']->getInstance('Trean_Tagger')->replaceTags((string) $this->id, $this->tags, $GLOBALS['registry']->getAuth(), 'bookmark');
         } else {
             // Saving a new bookmark.
-            $bookmark_id = $GLOBALS['trean_db']->insert('
+            $bookmark_id = $GLOBALS['trean_db']->insert(
+                '
                 INSERT INTO trean_bookmarks (
                     user_id,
                     bookmark_url,
@@ -100,7 +104,7 @@ class Trean_Bookmark
                     favicon_url,
                     bookmark_dt
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-                array(
+                [
                     $this->userId,
                     $c_url,
                     $c_title,
@@ -109,10 +113,11 @@ class Trean_Bookmark
                     $this->http_status,
                     $c_favicon_url,
                     $this->dt,
-            ));
+                ]
+            );
 
-            $this->id = (int)$bookmark_id;
-            $GLOBALS['injector']->getInstance('Trean_Tagger')->tag((string)$this->id, $this->tags, $GLOBALS['registry']->getAuth(), 'bookmark');
+            $this->id = (int) $bookmark_id;
+            $GLOBALS['injector']->getInstance('Trean_Tagger')->tag((string) $this->id, $this->tags, $GLOBALS['registry']->getAuth(), 'bookmark');
         }
 
         if ($crawl) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Show bookmarks tagged with a specified set of tags.
  *
@@ -13,7 +14,7 @@ class Trean_Block_Tagsearch extends Horde_Core_Block
 {
     /**
      */
-    public function __construct($app, $params = array())
+    public function __construct($app, $params = [])
     {
         parent::__construct($app, $params);
         $this->_name = _("Bookmarks tagged with \"%s\"");
@@ -23,31 +24,31 @@ class Trean_Block_Tagsearch extends Horde_Core_Block
      */
     protected function _params()
     {
-        return array(
-            'rows' => array(
+        return [
+            'rows' => [
                 'name' => _("Number of bookmarks to show"),
                 'type' => 'enum',
                 'default' => '10',
-                'values' => array(
+                'values' => [
                     '10' => _("10 rows"),
                     '15' => _("15 rows"),
-                    '25' => _("25 rows")
-                )
-            ),
-            'template' => array(
+                    '25' => _("25 rows"),
+                ],
+            ],
+            'template' => [
                 'name' => _("Template"),
                 'type' => 'enum',
                 'default' => '1line',
-                'values' => array(
+                'values' => [
                     'standard' => _("3 Line"),
                     '2line' => _("2 Line"),
-                    '1line' => _("1 Line")
-                )
-            ),
-            'tags' => array(
+                    '1line' => _("1 Line"),
+                ],
+            ],
+            'tags' => [
                 'name' => _("Tags"),
-                'type' => 'text')
-        );
+                'type' => 'text'],
+        ];
     }
 
     /**
@@ -68,12 +69,12 @@ class Trean_Block_Tagsearch extends Horde_Core_Block
         $html = '';
         $tagger = $injector->getInstance('Trean_Tagger');
         try {
-            $ids = $tagger->search(explode(',', $this->_params['tags']), array('user' => array($registry->getAuth())));
+            $ids = $tagger->search(explode(',', $this->_params['tags']), ['user' => [$registry->getAuth()]]);
         } catch (Trean_Exception $e) {
-            $ids = array();
+            $ids = [];
         }
 
-        $bookmarks = $trean_gateway->getBookmarks($ids, array('sortby' => $prefs->getValue('sortby'), 'sortdir' => $prefs->getValue('sortdir')));
+        $bookmarks = $trean_gateway->getBookmarks($ids, ['sortby' => $prefs->getValue('sortby'), 'sortdir' => $prefs->getValue('sortdir')]);
         foreach ($bookmarks as $bookmark) {
             ob_start();
             require $template;

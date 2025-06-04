@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Once folders have been converted to tags, remove old data
  *
@@ -22,7 +23,7 @@ class TreanUpgradeFoldersToTagsPost extends Horde_Db_Migration_Base
         $this->removeColumn('trean_bookmarks', 'bookmark_rating');
         $this->removeColumn('trean_bookmarks', 'folder_id');
 
-        $this->changeColumn('trean_bookmarks', 'user_id', 'integer', array('unsigned' => true, 'null' => false));
+        $this->changeColumn('trean_bookmarks', 'user_id', 'integer', ['unsigned' => true, 'null' => false]);
     }
 
     /**
@@ -31,6 +32,6 @@ class TreanUpgradeFoldersToTagsPost extends Horde_Db_Migration_Base
     public function down()
     {
         $this->addColumn('trean_bookmarks', 'folder_id', 'integer');
-        $this->addColumn('trean_bookmarks', 'bookmark_rating', 'integer', array('default' => 0));
+        $this->addColumn('trean_bookmarks', 'bookmark_rating', 'integer', ['default' => 0]);
     }
 }

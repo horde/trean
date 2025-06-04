@@ -1,4 +1,5 @@
 <?php
+
 class Trean_Queue_Task_Crawl implements Horde_Queue_Task
 {
     /**
@@ -87,13 +88,13 @@ class Trean_Queue_Task_Crawl implements Horde_Queue_Task
         if ($body && $page->code == 200) {
             try {
                 $indexer = $injector->getInstance('Content_Indexer');
-                $indexer->index('horde-user-' . $this->_userId, 'trean-bookmark', $this->_bookmarkId, json_encode(array(
+                $indexer->index('horde-user-' . $this->_userId, 'trean-bookmark', $this->_bookmarkId, json_encode([
                     'title' => $this->_userTitle,
                     'description' => $this->_userDesc,
                     'url' => $this->_url,
                     'headers' => $page->headers,
                     'body' => $body,
-                )));
+                ]));
             } catch (Exception $e) {
                 Horde::log($e, 'INFO');
             }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright 2002-2017 Horde LLC (http://www.horde.org/)
@@ -27,22 +28,22 @@ if ($GLOBALS['conf']['content_index']['enabled']) {
 }
 natcasesort($bookmark->tags);
 $injector->getInstance('Horde_Core_Factory_Imple')
-    ->create('Trean_Ajax_Imple_TagAutoCompleter', array(
+    ->create('Trean_Ajax_Imple_TagAutoCompleter', [
         'id' => 'treanBookmarkTags',
         'boxClass' => 'treanACBox',
         'pretty' => true,
-        'existing' => array_values($bookmark->tags)));
+        'existing' => array_values($bookmark->tags)]);
 
 $injector->getInstance('Horde_Core_Factory_Imple')
-    ->create('Trean_Ajax_Imple_TopTags', array(
-        'id' => 'loadTags'));
+    ->create('Trean_Ajax_Imple_TopTags', [
+        'id' => 'loadTags']);
 
 $page_output->addInlineScript('HordeImple.AutoCompleter.treanBookmarkTags.init()', true);
-$page_output->header(array(
-    'title' => _("Edit Bookmark")
-));
+$page_output->header([
+    'title' => _("Edit Bookmark"),
+]);
 if (!Horde_Util::getFormData('popup')) {
-    $notification->notify(array('listeners' => 'status'));
+    $notification->notify(['listeners' => 'status']);
 }
 require TREAN_TEMPLATES . '/edit.html.php';
 $page_output->footer();

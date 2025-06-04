@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2004-2017 Horde LLC (http://www.horde.org/)
  *
@@ -81,13 +82,13 @@ class Trean_Bookmarks
      */
     public function listBookmarks($sortby = 'title', $sortdir = 0, $from = 0, $count = 0, $userId = null)
     {
-        $values = array(empty($userId) ? $this->_userId : $userId);
+        $values = [empty($userId) ? $this->_userId : $userId];
 
         $sql = 'SELECT bookmark_id, user_id, bookmark_url, bookmark_title, bookmark_description, bookmark_clicks, bookmark_http_status, favicon_url, bookmark_dt
                 FROM trean_bookmarks
                 WHERE user_id = ?
                 ORDER BY bookmark_' . $sortby . ($sortdir ? ' DESC' : '');
-        $sql = $GLOBALS['trean_db']->addLimitOffset($sql, array('limit' => $count, 'offset' => $from));
+        $sql = $GLOBALS['trean_db']->addLimitOffset($sql, ['limit' => $count, 'offset' => $from]);
 
         return $this->_resultSet($GLOBALS['trean_db']->select($sql, $values));
     }
@@ -109,17 +110,17 @@ class Trean_Bookmarks
             throw new Trean_Exception($e);
         }
         if (!$search->hits->total) {
-            return array();
+            return [];
         }
-        $bookmarkIds = array();
+        $bookmarkIds = [];
         foreach ($search->hits->hits as $bookmarkHit) {
-            $bookmarkIds[] = (int)$bookmarkHit->_id;
+            $bookmarkIds[] = (int) $bookmarkHit->_id;
         }
 
         $sql = 'SELECT bookmark_id, user_id, bookmark_url, bookmark_title, bookmark_description, bookmark_clicks, bookmark_http_status, favicon_url, bookmark_dt
                 FROM trean_bookmarks
                 WHERE user_id = ? AND bookmark_id IN (' . implode(',', $bookmarkIds) . ')';
-        $values = array($this->_userId);
+        $values = [$this->_userId];
 
         return $this->_resultSet($GLOBALS['trean_db']->select($sql, $values));
     }
@@ -134,7 +135,7 @@ class Trean_Bookmarks
     {
         $sql = 'SELECT COUNT(*) FROM trean_bookmarks WHERE user_id = ?';
         try {
-            return $GLOBALS['trean_db']->selectValue($sql, array($this->_userId));
+            return $GLOBALS['trean_db']->selectValue($sql, [$this->_userId]);
         } catch (Horde_Db_Exception $e) {
             throw new Trean_Exception($e);
         }
@@ -151,14 +152,14 @@ class Trean_Bookmarks
     public function groupBookmarks($groupby)
     {
         switch ($groupby) {
-        case 'status':
-            $sql = 'SELECT bookmark_http_status AS status, COUNT(*) AS count
+            case 'status':
+                $sql = 'SELECT bookmark_http_status AS status, COUNT(*) AS count
                     FROM trean_bookmarks
                     GROUP BY bookmark_http_status';
-            break;
+                break;
 
-        default:
-            return array();
+            default:
+                return [];
         }
 
         try {
@@ -178,7 +179,7 @@ class Trean_Bookmarks
      */
     public function getBookmark($id)
     {
-        $results = $this->getBookmarks(array($id));
+        $results = $this->getBookmarks([$id]);
 
         return array_pop($results);
     }
@@ -196,7 +197,7 @@ class Trean_Bookmarks
      * @throws Trean_Exception
      * @since 1.2.0
      */
-    public function getBookmarks(array $ids, array $options = array())
+    public function getBookmarks(array $ids, array $options = [])
     {
         $sql = 'SELECT bookmark_id, user_id, bookmark_url, bookmark_title, bookmark_description, bookmark_clicks, bookmark_http_status, favicon_url, bookmark_dt
                 FROM trean_bookmarks
@@ -229,7 +230,7 @@ class Trean_Bookmarks
 
         /* Untag */
         $tagger = $GLOBALS['injector']->getInstance('Trean_Tagger');
-        $tagger->replaceTags((string)$bookmark->id, array(), $GLOBALS['registry']->getAuth(), 'bookmark');
+        $tagger->replaceTags((string) $bookmark->id, [], $GLOBALS['registry']->getAuth(), 'bookmark');
         $GLOBALS['injector']->getInstance('Content_ObjectMapper')
             ->delete($bookmark->id, 'bookmark');
 
@@ -238,7 +239,7 @@ class Trean_Bookmarks
 
         /* Delete from SQL. */
         try {
-            $GLOBALS['trean_db']->delete('DELETE FROM trean_bookmarks WHERE bookmark_id = ' . (int)$bookmark->id);
+            $GLOBALS['trean_db']->delete('DELETE FROM trean_bookmarks WHERE bookmark_id = ' . (int) $bookmark->id);
         } catch (Horde_Db_Exception $e) {
             throw new Trean_Exception($e);
         }
@@ -256,14 +257,14 @@ class Trean_Bookmarks
     protected function _resultSet($bookmarks)
     {
         if (is_null($bookmarks)) {
-            return array();
+            return [];
         }
 
-        $objects = array();
+        $objects = [];
         $tagger = $GLOBALS['injector']->getInstance('Trean_Tagger');
         $charset = $GLOBALS['trean_db']->getOption('charset');
         foreach ($bookmarks as $bookmark) {
-            $cvBookmarks = array();
+            $cvBookmarks = [];
             foreach ($bookmark as $key => $value) {
                 if (!empty($value) && !is_numeric($value)) {
                     $cvBookmarks[$key] = Horde_String::convertCharset($value, $charset, 'UTF-8');
@@ -271,7 +272,7 @@ class Trean_Bookmarks
                     $cvBookmarks[$key] = $value;
                 }
             }
-            $cvBookmarks['bookmark_tags'] = $tagger->getTags((string)$cvBookmarks['bookmark_id'], 'bookmark');
+            $cvBookmarks['bookmark_tags'] = $tagger->getTags((string) $cvBookmarks['bookmark_id'], 'bookmark');
             $objects[] = new Trean_Bookmark($cvBookmarks);
         }
 

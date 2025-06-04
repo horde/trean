@@ -1,4 +1,5 @@
 <?php
+
 class Trean_SaveBookmark_Controller extends Horde_Controller_Base
 {
     public function processRequest(Horde_Controller_Request $request, Horde_Controller_Response $response)
@@ -20,10 +21,10 @@ class Trean_SaveBookmark_Controller extends Horde_Controller_Base
             }
 
             $bookmark->save();
-            $result = array('data' => 'saved');
+            $result = ['data' => 'saved'];
         } catch (Horde_Exception $e) {
             $notification->push(sprintf(_("There was an error saving the bookmark: %s"), $e->getMessage()), 'horde.error');
-            $result = array('error' => $e->getMessage());
+            $result = ['error' => $e->getMessage()];
         }
 
         if (Horde_Util::getFormData('format') == 'json') {

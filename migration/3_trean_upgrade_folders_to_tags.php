@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Run the changes to migrate from folders to tags.
  *

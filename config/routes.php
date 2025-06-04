@@ -1,18 +1,25 @@
 <?php
+
 /**
  * Setup default routes
  */
-$mapper->connect('/b/save',
-    array(
+$mapper->connect(
+    '/b/save',
+    [
         'controller' => 'SaveBookmark',
-    ));
+    ]
+);
 
-$mapper->connect('/b/delete',
-    array(
+$mapper->connect(
+    '/b/delete',
+    [
         'controller' => 'DeleteBookmark',
-    ));
+    ]
+);
 
-$mapper->connect('/tag/:tag',
-    array(
+$mapper->connect(
+    '/tag/:tag',
+    [
         'controller' => 'BrowseByTag',
-    ));
+    ]
+);
