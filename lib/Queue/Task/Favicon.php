@@ -1,5 +1,7 @@
 <?php
 
+use Horde\Util\Domhtml;
+
 class Trean_Queue_Task_Favicon implements Horde_Queue_Task
 {
     /**
@@ -110,7 +112,7 @@ class Trean_Queue_Task_Favicon implements Horde_Queue_Task
     protected function _findByRel($client, $url, $body, $charset)
     {
         try {
-            $dom = new Horde_Domhtml($body, $charset);
+            $dom = new Domhtml($body, $charset);
             foreach ($dom as $node) {
                 if ($node instanceof DOMElement &&
                     Horde_String::lower($node->tagName) == 'link' &&
