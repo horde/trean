@@ -22,9 +22,8 @@ class TreanUpgradeFoldersToTagsPre extends Horde_Db_Migration_Base
     public function up()
     {
         $this->changeColumn('trean_bookmarks', 'bookmark_id', 'autoincrementKey');
-        try {
+        if (in_array('trean_bookmarks_seq', $this->tables())) {
             $this->dropTable('trean_bookmarks_seq');
-        } catch (Horde_Db_Exception $e) {
         }
 
         $t = $this->_connection->table('trean_bookmarks');
