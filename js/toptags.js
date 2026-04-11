@@ -2,18 +2,29 @@ var TreanTopTags = {
 
     loadTags: function(r)
     {
-        $('loadTags').hide();
-        var t = new Element('ul', { className: 'horde-tags' });
-        r.tags.each(function(tag) {
+        var loadEl = document.getElementById('loadTags');
+        if (loadEl) {
+            loadEl.hidden = true;
+        }
+        var t = document.createElement('ul');
+        t.className = 'horde-tags';
+        r.tags.forEach(function(tag) {
             if (tag == null) {
                 return;
             }
-            var item = new Element('li', { className: 'treanBookmarkTag' }).update(tag.escapeHTML());
-            item.observe('click', function() { TreanTopTags.add(tag); });
-            t.insert(item);
+            var item = document.createElement('li');
+            item.className = 'treanBookmarkTag';
+            item.textContent = tag;
+            item.addEventListener('click', function() { TreanTopTags.add(tag); });
+            t.appendChild(item);
         });
-        $('treanBookmarkTopTags').update(t);
-        new Effect.Appear($('treanTopTagsWrapper'));
+        var container = document.getElementById('treanBookmarkTopTags');
+        container.innerHTML = '';
+        container.appendChild(t);
+        var wrapper = document.getElementById('treanTopTagsWrapper');
+        if (wrapper) {
+            wrapper.hidden = false;
+        }
     },
 
     add: function(tag)
@@ -21,4 +32,4 @@ var TreanTopTags = {
         HordeImple.AutoCompleter.treanBookmarkTags.addNewItemNode(tag);
     }
 
-}
+};
