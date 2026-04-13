@@ -14,40 +14,35 @@
  * Integers should be given literally (without quotes).
  * Boolean values may be true or false (never quotes).
  *
- * Generated from conf.xml on 2026-04-04
+ * Generated from conf.xml on 2026-04-13
  */
-
 // ----------------------------------------------------------------------
 // Storage System Settings
 // ----------------------------------------------------------------------
-
-// What storage driver should we use?
-// Options:
-//   'sql' - SQL
+// What storage driver should we use? ('sql' = SQL)
 $conf['storage']['driver'] = 'sql';
-
-// Database configuration
-// Configure your database connection parameters
-$conf['storage']['params']['phptype'] = 'mysqli';
-$conf['storage']['params']['hostspec'] = 'localhost';
-$conf['storage']['params']['username'] = '';
-$conf['storage']['params']['password'] = '';
-$conf['storage']['params']['database'] = '';
-$conf['storage']['params']['charset'] = 'utf8mb4';
-$conf['storage']['params']['ssl'] = false;
-
-
+// Database connection: 'horde' uses the global Horde DB, 'custom' uses settings below
+// $conf['storage']['params']['driverconfig'] = 'custom';
+// $conf['storage']['params']['phptype'] = 'mysqli';
+// $conf['storage']['params']['hostspec'] = 'localhost';
+// $conf['storage']['params']['username'] = '';
+// $conf['storage']['params']['password'] = '';
+// $conf['storage']['params']['database'] = '';
+// $conf['storage']['params']['charset'] = 'utf8mb4';
+// $conf['storage']['params']['ssl'] = false;
+$conf['storage']['params']['driverconfig'] = 'horde';
 
 // ----------------------------------------------------------------------
 // Content Indexing/Search
 // ----------------------------------------------------------------------
-
-// Enable content   indexing?
+// Enable content indexing?
 $conf['content_index']['enabled'] = false;
-
 
 // ----------------------------------------------------------------------
 // Virtual File Storage
 // ----------------------------------------------------------------------
-
-
+// VFS storage: 'horde' uses the global Horde VFS config
+// Other options: 'None', 'File', 'Nosql', 'Sql', 'Ssh2'
+// $conf['favicons']['type'] = 'File';
+// $conf['favicons']['params']['vfsroot'] = '/tmp';
+$conf['favicons']['type'] = 'horde';
