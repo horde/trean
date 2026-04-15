@@ -13,6 +13,10 @@
  * @license  http://www.horde.org/licenses/bsdl.php BSD
  * @package  Trean
  */
+
+use Horde\Injector\Attribute\Factory;
+
+#[Factory(factory: Trean_Factory_TagBrowser::class, method: 'create')]
 class Trean_TagBrowser extends Horde_Core_TagBrowser
 {
     protected $_app = 'trean';
