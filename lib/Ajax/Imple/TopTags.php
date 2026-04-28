@@ -11,6 +11,8 @@
  * @license  http://www.horde.org/licenses/bsdl.php BSD
  * @package  Trean
  */
+use Horde\Util\Variables;
+
 class Trean_Ajax_Imple_TopTags extends Horde_Core_Ajax_Imple
 {
     /**
@@ -37,11 +39,11 @@ class Trean_Ajax_Imple_TopTags extends Horde_Core_Ajax_Imple
     /**
      * Imple handler.
      *
-     * @param Horde_Variables $vars  A variables object.
+     * @param Horde_Variables|Variables $vars  A variables object.
      *
      * @return stdClass  The top 10 most popular tags for the current user.
      */
-    protected function _handle(Horde_Variables $vars)
+    protected function _handle(Horde_Variables|Variables $vars)
     {
         $tagger = new Trean_Tagger();
         $result = new stdClass();
