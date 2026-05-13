@@ -39,7 +39,7 @@ license:
   uri: http://www.horde.org/licenses/bsd
 keywords:
   - bookmarks
-  - links
+  - linksB
 dependencies:
   required:
     php: ^8.1
@@ -47,7 +47,6 @@ dependencies:
       horde/horde: ^6
       horde/content: ^3
       horde/autoloader: ^3
-      horde/controller: ^3
       horde/core: ^3
       horde/date: ^3
       horde/db: ^3
@@ -71,4 +70,4 @@ autoload:
     - lib/
     - app/
   psr-4:
-    Horde\Trean\: /src
+    Horde\Trean\: src/

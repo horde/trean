@@ -29,7 +29,6 @@
         "horde/horde": "^6 || dev-FRAMEWORK_6_0",
         "horde/content": "^3 || dev-FRAMEWORK_6_0",
         "horde/autoloader": "^3 || dev-FRAMEWORK_6_0",
-        "horde/controller": "^3 || dev-FRAMEWORK_6_0",
         "horde/core": "^3 || dev-FRAMEWORK_6_0",
         "horde/date": "^3 || dev-FRAMEWORK_6_0",
         "horde/db": "^3 || dev-FRAMEWORK_6_0",
@@ -54,7 +53,7 @@
             "lib/"
         ],
         "psr-4": {
-            "Horde\\Trean\\": "/src"
+            "Horde\\Trean\\": "src/"
         }
     },
     "autoload-dev": {},
