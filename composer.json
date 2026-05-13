@@ -54,8 +54,7 @@
     },
     "autoload": {
         "classmap": [
-            "lib/",
-            "app/"
+            "lib/"
         ],
         "psr-4": {
             "Horde\\Trean\\": "src/"
