@@ -1,25 +1,17 @@
 <?php
 
-/**
- * Setup default routes
- */
-$mapper->connect(
-    '/b/save',
-    [
-        'controller' => 'SaveBookmark',
-    ]
-);
+use Horde\Trean\Controller\BrowseByTagController;
+use Horde\Trean\Controller\DeleteBookmarkController;
+use Horde\Trean\Controller\SaveBookmarkController;
 
-$mapper->connect(
-    '/b/delete',
-    [
-        'controller' => 'DeleteBookmark',
-    ]
-);
+$mapper->buildRoute(uri: '/b/save', name: 'SaveBookmark')
+    ->withController(SaveBookmarkController::class)
+    ->add();
 
-$mapper->connect(
-    '/tag/:tag',
-    [
-        'controller' => 'BrowseByTag',
-    ]
-);
+$mapper->buildRoute(uri: '/b/delete', name: 'DeleteBookmark')
+    ->withController(DeleteBookmarkController::class)
+    ->add();
+
+$mapper->buildRoute(uri: '/tag/:tag', name: 'BrowseByTag')
+    ->withController(BrowseByTagController::class)
+    ->add();
