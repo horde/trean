@@ -1,9 +1,11 @@
 <?php
 
+use Horde\Util\Util;
+
 /**
  * Tag browsing
  *
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (BSD). If you did not
  * did not receive this file, see http://www.horde.org/licenses/bsdl.php.
@@ -67,10 +69,10 @@ class Trean_View_BookmarkList
             $this->_browser = $GLOBALS['injector']->getInstance('Trean_TagBrowser');
         }
 
-        $action = Horde_Util::getFormData('actionID', '');
+        $action = Util::getFormData('actionID', '');
         switch ($action) {
             case 'remove':
-                $tag = Horde_Util::getFormData('tag');
+                $tag = Util::getFormData('tag');
                 if (isset($tag)) {
                     $this->_browser->removeTag($tag);
                     $this->_browser->save();
@@ -80,7 +82,7 @@ class Trean_View_BookmarkList
             case 'add':
             default:
                 // Add new tag to the stack, save to session.
-                $tag = Horde_Util::getFormData('tag');
+                $tag = Util::getFormData('tag');
                 if (isset($tag)) {
                     $this->_browser->addTag($tag);
                     $this->_browser->save();
@@ -107,8 +109,8 @@ class Trean_View_BookmarkList
     public function hasBookmarks()
     {
         $this->_getBookmarks();
-        return (bool) count($this->_bookmarks) ||
-            (bool) $this->_browser->tagCount();
+        return (bool) count($this->_bookmarks)
+            || (bool) $this->_browser->tagCount();
     }
 
     /**
@@ -187,7 +189,12 @@ class Trean_View_BookmarkList
         }
         $rtags = $this->_browser->getRelatedTags($uids);
         if (count($rtags)) {
-            $html = '<div class="trean-tags-related">'
+            /**
+             * ARCHITECTURE VIOLATION: Using deprecated Horde::img()
+             * @deprecated Use Horde_Themes_Image::tag() instead
+             * @see Horde_Deprecated::img()
+             */
+$html = '<div class="trean-tags-related">'
                 . Horde::img('tags.png') . ' <ul class="horde-tags">';
             foreach (array_values($rtags) as $taginfo) {
                 $html .= '<li>'
@@ -208,9 +215,19 @@ class Trean_View_BookmarkList
     protected function _getTagTrail()
     {
         if ($this->_browser->tagCount() >= 1) {
-            $html = '<div class="trean-tags-browsing">' . Horde::img('filter.png') . '<ul class="horde-tags">';
+            /**
+             * ARCHITECTURE VIOLATION: Using deprecated Horde::img()
+             * @deprecated Use Horde_Themes_Image::tag() instead
+             * @see Horde_Deprecated::img()
+             */
+$html = '<div class="trean-tags-browsing">' . Horde::img('filter.png') . '<ul class="horde-tags">';
             foreach ($this->_browser->getTags() as $tag => $id) {
-                $html .= '<li>' . htmlspecialchars($tag)
+                /**
+                 * ARCHITECTURE VIOLATION: Using deprecated Horde::img()
+                 * @deprecated Use Horde_Themes_Image::tag() instead
+                 * @see Horde_Deprecated::img()
+                 */
+$html .= '<li>' . htmlspecialchars($tag)
                     . $this->_linkRemoveTag($tag)->link()
                     . Horde::img('delete-small.png', _("Remove from search"))
                     . '</a></li>';

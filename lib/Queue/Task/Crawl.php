@@ -109,8 +109,8 @@ class Trean_Queue_Task_Crawl implements Horde_Queue_Task
 
         // Favicon
         if ($body) {
-            if (($type = $page->getHeader('Content-Type')) &&
-                preg_match('/.*;\s*charset="?([^" ]*)/', $type, $match)) {
+            if (($type = $page->getHeader('Content-Type'))
+                && preg_match('/.*;\s*charset="?([^" ]*)/', $type, $match)) {
                 $charset = $match[1];
             } else {
                 $charset = null;
