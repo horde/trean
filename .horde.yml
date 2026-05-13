@@ -68,7 +68,6 @@ dependencies:
 autoload:
   classmap:
     - lib/
-    - app/
   psr-4:
     Horde\Trean\: src/
 vendor: horde
