@@ -21,11 +21,15 @@
             "role": "lead"
         }
     ],
-    "time": "2025-06-04",
+    "keywords": [
+        "bookmarks",
+        "links"
+    ],
+    "time": "2026-05-13",
     "repositories": [],
     "require": {
         "horde/horde-installer-plugin": "dev-FRAMEWORK_6_0 || ^3 || ^2",
-        "php": "^8.2",
+        "php": "^8.1",
         "horde/horde": "^6 || dev-FRAMEWORK_6_0",
         "horde/content": "^3 || dev-FRAMEWORK_6_0",
         "horde/autoloader": "^3 || dev-FRAMEWORK_6_0",
@@ -50,7 +54,8 @@
     },
     "autoload": {
         "classmap": [
-            "lib/"
+            "lib/",
+            "app/"
         ],
         "psr-4": {
             "Horde\\Trean\\": "src/"
