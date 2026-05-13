@@ -1,7 +1,9 @@
 <script type="text/javascript">
 function cancelEdit()
 {
-<?php if (!Horde_Util::getFormData('popup')) { ?>
+<?php use Horde\Util\Util;
+
+if (!Util::getFormData('popup')) { ?>
     window.history.back();
     return false;
 <?php } else { ?>
@@ -14,7 +16,12 @@ function cancelEdit()
 <input type="hidden" name="bookmark" value="<?php echo $bookmark->id ?>" />
 
 <h1 class="header">
- <?php echo Horde::img(Trean::getFavicon($bookmark), '', 'class="trean-favicon"', '') ?>
+ <?php /**
+ * ARCHITECTURE VIOLATION: Using deprecated Horde::img()
+ * @deprecated Use Horde_Themes_Image::tag() instead
+ * @see Horde_Deprecated::img()
+ */
+echo Horde::img(Trean::getFavicon($bookmark), '', 'class="trean-favicon"', '') ?>
  <?php echo htmlspecialchars($bookmark->title) ?>
 </h1>
 
@@ -44,7 +51,12 @@ function cancelEdit()
 
  <tr>
   <td class="rightAlign">
-  <span id="treanBookmarkTags_loading_img" style="display:none;"><?php echo Horde::img('loading.gif', _("Loading...")) ?></span>
+  <span id="treanBookmarkTags_loading_img" style="display:none;"><?php /**
+ * ARCHITECTURE VIOLATION: Using deprecated Horde::img()
+ * @deprecated Use Horde_Themes_Image::tag() instead
+ * @see Horde_Deprecated::img()
+ */
+echo Horde::img('loading.gif', _("Loading...")) ?></span>
   </td>
   <td>
   <a id="loadTags"><?php echo _("See previously used tags")?></a>

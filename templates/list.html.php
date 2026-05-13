@@ -27,13 +27,28 @@ function table_sortCallback(tableId, column, sortDown)
   <td>
    <div class="trean-bookmarks-title">
     <div class="trean-favicon-container">
-     <?php echo Horde::img(Trean::getFavicon($bookmark), '', ['class' => 'trean-favicon']) ?>
+     <?php /**
+ * ARCHITECTURE VIOLATION: Using deprecated Horde::img()
+ * @deprecated Use Horde_Themes_Image::tag() instead
+ * @see Horde_Deprecated::img()
+ */
+echo Horde::img(Trean::getFavicon($bookmark), '', ['class' => 'trean-favicon']) ?>
     </div>
     <?php
 if ($bookmark->http_status == 'error') {
-    echo Horde::img('http/error.png');
+    /**
+     * ARCHITECTURE VIOLATION: Using deprecated Horde::img()
+     * @deprecated Use Horde_Themes_Image::tag() instead
+     * @see Horde_Deprecated::img()
+     */
+echo Horde::img('http/error.png');
 } elseif ($bookmark->http_status) {
-    echo Horde::img('http/' . (int) substr($bookmark->http_status, 0, 1) . 'xx.png');
+    /**
+     * ARCHITECTURE VIOLATION: Using deprecated Horde::img()
+     * @deprecated Use Horde_Themes_Image::tag() instead
+     * @see Horde_Deprecated::img()
+     */
+echo Horde::img('http/' . (int) substr($bookmark->http_status, 0, 1) . 'xx.png');
 }
      ?>
     <?php echo $this->redirectUrl->add('b', $bookmark->id)->link(['target' => $this->target]) . $this->h($bookmark->title ? $bookmark->title : $bookmark->url) ?></a>
@@ -64,7 +79,12 @@ if ($bookmark->http_status == 'error') {
    <?php echo $bookmark->clicks ?>
   </td>
   <td class="trean-bookmarks-actions">
-   <a href="<?php echo Horde::url('edit.php')->add('bookmark', (int) $bookmark->id) ?>"><?php echo Horde::img('edit.png', _("Edit")) ?></a>
+   <a href="<?php echo Horde::url('edit.php')->add('bookmark', (int) $bookmark->id) ?>"><?php /**
+ * ARCHITECTURE VIOLATION: Using deprecated Horde::img()
+ * @deprecated Use Horde_Themes_Image::tag() instead
+ * @see Horde_Deprecated::img()
+ */
+echo Horde::img('edit.png', _("Edit")) ?></a>
    <form action="<?php echo Horde::url('b/delete') ?>" method="post">
     <input type="hidden" name="bookmark" value="<?php echo (int) $bookmark->id ?>" />
     <input type="hidden" name="url" value="<?php echo $this->h(Horde::selfUrl(true)) ?>" />

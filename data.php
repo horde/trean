@@ -1,7 +1,9 @@
 <?php
 
+use Horde\Util\Util;
+
 /**
- * Copyright 2001-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2001-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (GPL). If you
  * did not receive this file, see http://www.horde.org/licenses/gpl.
@@ -24,12 +26,12 @@ $templates = [
 ];
 
 /* Initial values. */
-$actionID      = Horde_Util::getFormData('actionID');
+$actionID      = Util::getFormData('actionID');
 $next_step     = Horde_Data::IMPORT_FILE;
 $import_step   = Horde_Data::IMPORT_FILE;
 $param = ['file_types' => $file_types];
 
-$import_format = Horde_Util::getFormData('import_format', '');
+$import_format = Util::getFormData('import_format', '');
 $storage = $injector->getInstance('Horde_Core_Data_Storage');
 
 if ($import_format) {

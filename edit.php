@@ -1,8 +1,10 @@
 <?php
 
+use Horde\Util\Util;
+
 /**
  *
- * Copyright 2002-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2002-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (BSD). If you
  * did not receive this file, see http://www.horde.org/licenses/bsdl.php.
@@ -13,7 +15,7 @@
 require_once __DIR__ . '/lib/Application.php';
 Horde_Registry::appInit('trean');
 
-$bookmark_id = Horde_Util::getFormData('bookmark');
+$bookmark_id = Util::getFormData('bookmark');
 try {
     $bookmark = $trean_gateway->getBookmark($bookmark_id);
 } catch (Horde_Exception_NotFound $e) {
@@ -42,7 +44,7 @@ $page_output->addInlineScript('HordeImple.AutoCompleter.treanBookmarkTags.init()
 $page_output->header([
     'title' => _("Edit Bookmark"),
 ]);
-if (!Horde_Util::getFormData('popup')) {
+if (!Util::getFormData('popup')) {
     $notification->notify(['listeners' => 'status']);
 }
 require TREAN_TEMPLATES . '/edit.html.php';

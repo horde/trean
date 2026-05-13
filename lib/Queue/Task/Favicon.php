@@ -64,8 +64,8 @@ class Trean_Queue_Task_Favicon implements Horde_Queue_Task
             try {
                 $page = $client->get($this->_url);
                 $this->_body = $page->getBody();
-                if ($type = $page->getHeader('Content-Type') &&
-                    preg_match('/.*;\s*charset="?([^" ]*)/', $type, $match)) {
+                if ($type = $page->getHeader('Content-Type')
+                    && preg_match('/.*;\s*charset="?([^" ]*)/', $type, $match)) {
                     $this->_charset = $match[1];
                 }
             } catch (Horde_Http_Exception $e) {
@@ -114,10 +114,10 @@ class Trean_Queue_Task_Favicon implements Horde_Queue_Task
         try {
             $dom = new Domhtml($body, $charset);
             foreach ($dom as $node) {
-                if ($node instanceof DOMElement &&
-                    Horde_String::lower($node->tagName) == 'link' &&
-                    ($rel = Horde_String::lower($node->getAttribute('rel'))) &&
-                    ($rel == 'shortcut icon' || $rel == 'icon')) {
+                if ($node instanceof DOMElement
+                    && Horde_String::lower($node->tagName) == 'link'
+                    && ($rel = Horde_String::lower($node->getAttribute('rel')))
+                    && ($rel == 'shortcut icon' || $rel == 'icon')) {
                     $favicon = $node->getAttribute('href');
 
                     // Make sure $favicon is a full URL.

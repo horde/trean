@@ -1,8 +1,10 @@
 <?php
 
+use Horde\Util\Util;
+
 /**
  *
- * Copyright 2002-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2002-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (BSD). If you did not
  * did not receive this file, see http://www.horde.org/licenses/bsdl.php.
@@ -14,12 +16,12 @@ require_once __DIR__ . '/lib/Application.php';
 Horde_Registry::appInit('trean');
 
 /* Deal with any action task. */
-$actionID = Horde_Util::getFormData('actionID');
+$actionID = Util::getFormData('actionID');
 switch ($actionID) {
     case 'add_bookmark':
         /* Check permissions. */
-        if (Trean::hasPermission('max_bookmarks') !== true &&
-            Trean::hasPermission('max_bookmarks') <= $trean_gateway->countBookmarks()) {
+        if (Trean::hasPermission('max_bookmarks') !== true
+            && Trean::hasPermission('max_bookmarks') <= $trean_gateway->countBookmarks()) {
             Horde::permissionDeniedError(
                 'trean',
                 'max_bookmarks',
@@ -30,10 +32,10 @@ switch ($actionID) {
 
         /* Create a new bookmark. */
         $properties = [
-            'bookmark_url' => Horde_Util::getFormData('url'),
-            'bookmark_title' => Horde_Util::getFormData('title'),
-            'bookmark_description' => Horde_Util::getFormData('description'),
-            'bookmark_tags' => Horde_Util::getFormData('treanBookmarkTags'),
+            'bookmark_url' => Util::getFormData('url'),
+            'bookmark_title' => Util::getFormData('title'),
+            'bookmark_description' => Util::getFormData('description'),
+            'bookmark_tags' => Util::getFormData('treanBookmarkTags'),
         ];
 
         try {
@@ -42,9 +44,9 @@ switch ($actionID) {
             $notification->push(sprintf(_("There was an error adding the bookmark: %s"), $e->getMessage()), 'horde.error');
         }
 
-        if (Horde_Util::getFormData('popup')) {
+        if (Util::getFormData('popup')) {
             echo Horde::wrapInlineScript(['window.close();']);
-        } elseif (Horde_Util::getFormData('iframe')) {
+        } elseif (Util::getFormData('iframe')) {
             $notification->push(_("Bookmark Added"), 'horde.success');
             $page_output->header();
             $notification->notify();
@@ -55,7 +57,7 @@ switch ($actionID) {
         break;
 }
 
-if (Horde_Util::getFormData('popup')) {
+if (Util::getFormData('popup')) {
     $page_output->sidebar = false;
     $page_output->topbar = false;
     $page_output->addInlineScript([
@@ -78,7 +80,7 @@ $page_output->addInlineScript('HordeImple.AutoCompleter.treanBookmarkTags.init()
 $page_output->header([
     'title' => _("New Bookmark"),
 ]);
-if (!Horde_Util::getFormData('popup') && !Horde_Util::getFormData('iframe')) {
+if (!Util::getFormData('popup') && !Util::getFormData('iframe')) {
     $notification->notify(['listeners' => 'status']);
 }
 require TREAN_TEMPLATES . '/add.html.php';

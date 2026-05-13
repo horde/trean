@@ -1,9 +1,11 @@
 <?php
 
+use Horde\Util\Util;
+
 /**
  * Trean Base Class.
  *
- * Copyright 2002-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2002-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (BSD). If you did not
  * did not receive this file, see http://www.horde.org/licenses/bsdl.php.
@@ -65,7 +67,7 @@ class Trean
     public static function addFeedLink()
     {
         $rss = Horde::url('rss.php', true, -1);
-        if ($label = Horde_Util::getFormData('label')) {
+        if ($label = Util::getFormData('label')) {
             $rss->add('label', $label);
         }
 
@@ -80,7 +82,12 @@ class Trean
         $view = $GLOBALS['injector']->createInstance('Horde_View');
         $view->url = Horde::url('add.php', true, ['append_session' => -1])
             ->add('popup', 1);
-        $view->image = Horde::img('add.png');
+        /**
+         * ARCHITECTURE VIOLATION: Using deprecated Horde::img()
+         * @deprecated Use Horde_Themes_Image::tag() instead
+         * @see Horde_Deprecated::img()
+         */
+$view->image = Horde::img('add.png');
         return $view->render('bookmarklet');
     }
 

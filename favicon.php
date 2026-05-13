@@ -1,7 +1,9 @@
 <?php
 
+use Horde\Util\Util;
+
 /**
- * Copyright 2005-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2005-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (BSD). If you did not
  * did not receive this file, see http://www.horde.org/licenses/bsdl.php.
@@ -12,7 +14,7 @@
 require_once __DIR__ . '/lib/Application.php';
 Horde_Registry::appInit('trean', ['session_control' => 'readonly']);
 
-$bookmark_id = Horde_Util::getFormData('bookmark_id');
+$bookmark_id = Util::getFormData('bookmark_id');
 if (!$bookmark_id) {
     exit;
 }
