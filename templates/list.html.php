@@ -72,7 +72,7 @@ echo Horde::img('http/' . (int) substr($bookmark->http_status, 0, 1) . 'xx.png')
   <td class="trean-bookmarks-date">
    <?php if ($bookmark->dt) {
        $dt = new Horde_Date($bookmark->dt);
-       echo $dt->strftime($GLOBALS['prefs']->getValue('date_format'));
+       echo $dt->format($GLOBALS['prefs']->getValue('date_format'), new \Horde\Date\Formatter\IcuFormatter(), $GLOBALS['language'] ?? 'en_US');
    } ?>
   </td>
   <td class="trean-bookmarks-clicks">
