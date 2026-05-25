@@ -25,7 +25,7 @@
         "bookmarks",
         "links"
     ],
-    "time": "2026-05-13",
+    "time": "2026-05-25",
     "repositories": [],
     "require": {
         "horde/horde-installer-plugin": "dev-FRAMEWORK_6_0 || ^3 || ^2",

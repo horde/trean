@@ -29,10 +29,10 @@ authors:
     active: false
     role: lead
 version:
-  release: 2.0.3-beta1
+  release: 2.0.3-RC1
   api: 2.0.0
 state:
-  release: beta
+  release: RC
   api: beta
 license:
   identifier: BSD-2-Clause

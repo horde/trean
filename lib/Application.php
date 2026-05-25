@@ -34,7 +34,7 @@ class Trean_Application extends Horde_Registry_Application
 {
     /**
      */
-    public $version = '2.0.3-beta1';
+    public $version = '2.0.3-RC1';
 
     /**
      * Global variables defined:

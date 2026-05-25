@@ -22,6 +22,26 @@
     docs: Clarify where to put local overrides
     chore: Add keywords to hordeyml
     chore: Use modern domhtml internally
+2.0.3-RC1:
+  api: 2.0.3-RC1
+  state:
+    release: RC
+    api: RC
+  date: 2026-05-25
+  license:
+    identifier: BSD-2-Clause
+    uri: https://spdx.org/licenses/BSD-2-Clause.html
+  notes: |-
+    docs: add Lucide Icons license notice
+    feat(icons): replace 20x20 icon with 48x48 lucide bookmark
+    chore: Update workflow dependency
+    refactor(injector): Widen type hints from Horde_Injector to Horde_Injector|Injector
+    Merge pull request #5 from horde/refactor/modern-controller-migration
+    refactor(strftime): Migrate to native usage of IntlDateFormatter and DateTime
+    chore: Remove app/ dir from autoloader definitions
+    refactor: Explicitly declare the default stack as a prestep to removing fallback logic
+    chore: Remove app/ dir from autoloader definitions
+    refactor: Explicitly declare the default stack as a prestep to removing fallback logic
 2.0.2:
   api: 2.0.0
   state:
