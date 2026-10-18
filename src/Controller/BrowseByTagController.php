@@ -28,6 +28,7 @@ use Trean;
 use Trean_TagBrowser;
 use Trean_Tagger;
 use Trean_View_BookmarkList;
+use Horde\Trean\TreanConfig;
 
 /**
  * PSR-15 controller for browsing bookmarks by tag.
@@ -49,13 +50,14 @@ class BrowseByTagController implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
+        $config = $injector->get('TreanConfig');
         $route = $request->getAttribute('route', []);
         $tag = urldecode($route['tag'] ?? '');
 
         $tagBrowser = new Trean_TagBrowser($this->tagger, $tag);
         $view = new Trean_View_BookmarkList(null, $tagBrowser);
 
-        if ($GLOBALS['conf']['content_index']['enabled']) {
+        if ($config->get('content_index.enabled')) {
             $topbar = $GLOBALS['injector']->getInstance(Horde_View_Topbar::class);
             $topbar->search = true;
             $topbar->searchAction = Horde::url('search.php');
